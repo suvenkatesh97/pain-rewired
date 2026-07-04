@@ -1,0 +1,86 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('posts');
+const latest = posts.sort((a, b) => b.data.date.localeCompare(a.data.date)).slice(0, 3);
+---
+
+<Base title="Home">
+  <section class="hero">
+    <div class="container">
+      <p style="font-size: 0.95rem; opacity: 0.8; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">
+        Understanding chronic pain differently
+      </p>
+      <h1>Your pain is real.<br />It can also change.</h1>
+      <p>
+        Neuroplastic pain is a well-understood condition where your brain's 
+        pain pathways become hypersensitive — even after tissues heal. 
+        Learn how the latest research is helping people recover.
+      </p>
+      <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+        <a href="/intro/what-is" class="btn btn-primary">Start here →</a>
+        <a href="/quiz" class="btn btn-outline" style="border-color: white; color: white;">Take the quiz</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container page-section">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+      <div class="card">
+        <h3 style="margin-top: 0; color: var(--teal);">🧠</h3>
+        <h3>It's Real</h3>
+        <p style="font-size: 0.95rem;">Brain scans confirm the same pain regions activate as with acute injury. The cause differs, but the experience is identical.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-top: 0; color: var(--teal);">📊</h3>
+        <h3>It's Common</h3>
+        <p style="font-size: 0.95rem;">Fibromyalgia, chronic back pain, migraines, IBS, TMJ, pelvic pain — all involve central sensitization.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-top: 0; color: var(--teal);">🔄</h3>
+        <h3>It Can Change</h3>
+        <p style="font-size: 0.95rem;">Your brain's wiring can be rewired. Pain Reprocessing Therapy shows 66% pain-free after 4 weeks in clinical trials.</p>
+      </div>
+    </div>
+
+    <h2 style="margin-top: 0;">Latest Research</h2>
+    <p style="color: var(--text-muted);">Simplified summaries of recent papers on neuroplastic pain.</p>
+
+    {latest.length === 0 && (
+      <div class="card" style="text-align: center; padding: 2rem;">
+        <p>No digest posts yet — the first batch will be generated soon.</p>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">In the meantime, explore the <a href="/intro/what-is">intro guides</a>.</p>
+      </div>
+    )}
+
+    {latest.map(post => (
+      <a href={`/blog/${post.id}`} style="text-decoration: none; color: inherit; display: block; margin-bottom: 1rem;">
+        <article class="card">
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
+            {post.data.difficulty && <span class={`badge badge-${post.data.difficulty}`}>{post.data.difficulty}</span>}
+          </div>
+          <h3 style="margin: 0 0 0.3rem;">{post.data.title}</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">{post.data.date}{post.data.journal ? ` · ${post.data.journal}` : ''}</p>
+        </article>
+      </a>
+    ))}
+
+    <p style="margin-top: 1.5rem;">
+      <a href="/blog" class="btn btn-outline">View all posts →</a>
+    </p>
+  </section>
+
+  <section style="background: var(--teal-light); padding: 3rem 0;">
+    <div class="container" style="text-align: center;">
+      <h2 style="margin-top: 0;">Not sure where to start?</h2>
+      <p style="max-width: 500px; margin: 0 auto 1.5rem;">
+        If you're new to this topic, the quickest way in is the intro guide or the self-assessment quiz.
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="/intro/what-is" class="btn btn-primary">Read the intro</a>
+        <a href="/quiz" class="btn btn-outline">Take the quiz</a>
+      </div>
+    </div>
+  </section>
+</Base>

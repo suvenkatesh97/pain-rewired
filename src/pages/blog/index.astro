@@ -1,0 +1,40 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('posts');
+const sorted = posts.sort((a, b) => b.data.date.localeCompare(a.data.date));
+---
+
+<Base title="Research Digest">
+  <section class="container page-section">
+    <h1>Research Digest</h1>
+    <p>Simplified summaries of the latest research on neuroplastic pain, central sensitization, and brain-based treatments.</p>
+
+    {sorted.length === 0 && (
+      <div class="card" style="text-align: center; padding: 2rem; margin-top: 2rem;">
+        <p style="font-size: 1.1rem;">No posts yet.</p>
+        <p style="color: var(--text-muted);">The pipeline runs weekly to fetch and summarize new papers. Check back soon or explore the intro guides in the meantime.</p>
+        <a href="/intro/what-is" class="btn btn-primary" style="margin-top: 1rem;">Start with the intro →</a>
+      </div>
+    )}
+
+    <div style="margin-top: 2rem;">
+      {sorted.map(post => (
+        <a href={`/blog/${post.id}`} style="text-decoration: none; color: inherit; display: block; margin-bottom: 1rem;">
+          <article class="card">
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
+              {post.data.difficulty && <span class={`badge badge-${post.data.difficulty}`}>{post.data.difficulty}</span>}
+              {post.data.tags?.slice(0, 3).map(t => <span class="tag">{t}</span>)}
+            </div>
+            <h3 style="margin: 0 0 0.3rem;">{post.data.title}</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+              {post.data.date}
+              {post.data.journal ? ` · ${post.data.journal}` : ''}
+            </p>
+          </article>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>

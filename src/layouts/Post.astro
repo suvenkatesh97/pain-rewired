@@ -1,0 +1,44 @@
+---
+import Base from './Base.astro';
+
+export interface Props {
+  title: string;
+  date: string;
+  tags?: string[];
+  difficulty?: string;
+  source?: string;
+  authors?: string;
+  journal?: string;
+}
+
+const { title, date, tags, difficulty, source, authors, journal } = Astro.props;
+---
+
+<Base title={title}>
+  <article class="container page-section">
+    <header style="margin-bottom: 2rem;">
+      <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-bottom: 0.5rem;">
+        {difficulty && <span class={`badge badge-${difficulty}`}>{difficulty}</span>}
+        {tags?.map(t => <span class="tag">{t}</span>)}
+      </div>
+      <h1 style="margin: 0.5rem 0;">{title}</h1>
+      <div style="color: var(--text-muted); font-size: 0.9rem;">
+        <time>{date}</time>
+        {journal && <span> · {journal}</span>}
+      </div>
+      {authors && <div style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.3rem;">{authors}</div>}
+    </header>
+
+    <div style="line-height: 1.8;">
+      <slot />
+    </div>
+
+    {source && (
+      <p style="margin-top: 2rem; font-size: 0.9rem;">
+        <a href={source} target="_blank" rel="noopener noreferrer">
+          Read original paper →
+        </a>
+      </p>
+    )}
+  </article>
+</Base>
