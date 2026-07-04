@@ -8,8 +8,13 @@ authors: "Howard Schubiner M.D."
 journal: "Unlearn Your Pain"
 ---
 
-**Key takeaway:**
+This blog post, "Looking to the Past for Answers to Modern Medical Problems," discusses the limitations of modern medicine in addressing chronic pain and other complex conditions. Dr. Howard Schubiner argues that the traditional approach to medicine, which focuses on finding a simple technological fix, often falls short in helping people with these conditions. Instead, he suggests that taking the time to listen to a patient's whole story can be a powerful tool in understanding and addressing their pain. This approach is important because it acknowledges that chronic pain is often linked to a person's unique experiences, emotions, and circumstances, rather than just a physical problem.
 
-Modern medicine fails many people with chronic pain and other conditions for which there is no simple technological fix. Many doctors now understand that taking the time to listen carefully to the whole story can make all the difference.
+- The traditional medical approach can be too narrow, focusing on treating symptoms rather than understanding the underlying causes of pain
+- Listening to a patient's story can provide valuable insights into the emotional and psychological factors that contribute to their pain
+- By taking a more holistic approach, doctors can help patients identify and address the root causes of their pain, rather than just masking symptoms
+- This approach requires a shift in the way doctors interact with patients, from a focus on technology and tests to a focus on empathy and understanding
 
-*This post originally appeared on Unlearn Your Pain by Howard Schubiner M.D..*
+For someone living with chronic pain, the key takeaway from this post is that your story matters. Don't be afraid to share your experiences, emotions, and concerns with your healthcare provider. By doing so, you can help them understand your pain in a more nuanced way, and work together to develop a treatment plan that addresses the underlying causes of your pain, rather than just the symptoms. This approach may take more time and effort, but it can lead to a more effective and sustainable path to healing and recovery.
+
+*This post originally appeared on Unlearn Your Pain by Dr. Howard Schubiner.*
