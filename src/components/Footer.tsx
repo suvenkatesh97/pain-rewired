@@ -14,6 +14,7 @@ const exploreLinks = [
 const toolsLinks = [
   { href: "/quiz", label: "Self-Assessment Quiz" },
   { href: "/chat", label: "AI Chat Assistant" },
+  { href: "/how-it-works", label: "How It Works" },
   { href: "/faq", label: "FAQ" },
   { href: "/resources", label: "Books & Resources" },
 ];
