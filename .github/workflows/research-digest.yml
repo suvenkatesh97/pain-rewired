@@ -44,5 +44,6 @@ jobs:
         run: |
           git config user.name "Pain Rewired Bot"
           git config user.email "bot@painrewired.vercel.app"
+          git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git
           git commit -m "Auto: add weekly research digest posts"
           git push
