@@ -265,8 +265,8 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
                   </svg>
                 ),
-                title: "Powered by Gemini 2.0 Flash",
-                desc: "Responses stream from Google's free Gemini API — fast, accurate answers from a model that understands medical and scientific topics deeply.",
+                title: "Powered by Groq",
+                desc: "Responses stream from Groq's free inference platform running Llama 3.3 70B — fast, capable, and fully free with no rate limits.",
               },
               {
                 icon: (

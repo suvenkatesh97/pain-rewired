@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+const GROQ_API_KEY = process.env.GROQ_API_KEY;
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 const HF_API_URL =
@@ -60,9 +60,9 @@ export async function POST(req: NextRequest) {
       });
     }
 
-    if (!GEMINI_API_KEY) {
+    if (!GROQ_API_KEY) {
       return new Response(
-        JSON.stringify({ error: "GEMINI_API_KEY not configured" }),
+        JSON.stringify({ error: "GROQ_API_KEY not configured" }),
         { status: 500 }
       );
     }
@@ -81,83 +81,39 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    const systemInstruction = {
-      parts: [{
-        text: `You are a knowledgeable, compassionate assistant for Pain Rewired, a site about neuroplastic pain. Answer questions based on the provided context. Be concise, helpful, and use markdown formatting for clarity (headers, lists, bold). If the context doesn't contain the answer, say so, then provide your best general knowledge.${
-          context ? `\n\nRelevant context from Pain Rewired knowledge base:\n${context}` : ""
-        }`
-      }]
-    };
+    const systemPrompt = `You are a knowledgeable, compassionate assistant for Pain Rewired, a site about neuroplastic pain. Answer questions based on the provided context. Be concise, helpful, and use markdown formatting for clarity (headers, lists, bold). If the context doesn't contain the answer, say so, then provide your best general knowledge.${
+      context ? `\n\nRelevant context from Pain Rewired knowledge base:\n${context}` : ""
+    }`;
 
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:streamGenerateContent?alt=sse&key=${GEMINI_API_KEY}`;
+    const groqRes = await fetch(
+      "https://api.groq.com/openai/v1/chat/completions",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${GROQ_API_KEY}`,
+        },
+        body: JSON.stringify({
+          model: "llama-3.3-70b-versatile",
+          messages: [
+            { role: "system", content: systemPrompt },
+            { role: "user", content: message },
+          ],
+          stream: true,
+        }),
+      }
+    );
 
-    const geminiRes = await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: message }] }],
-        systemInstruction,
-        generationConfig: { temperature: 0.7, maxOutputTokens: 1024 },
-      }),
-    });
-
-    if (!geminiRes.ok) {
-      const err = await geminiRes.text();
-      console.error("Gemini API error:", geminiRes.status, err);
+    if (!groqRes.ok) {
+      const err = await groqRes.text();
+      console.error("Groq API error:", groqRes.status, err);
       return new Response(
-        JSON.stringify({ error: `Gemini API error: ${geminiRes.status}` }),
+        JSON.stringify({ error: `Groq API error: ${groqRes.status}` }),
         { status: 502 }
       );
     }
 
-    // Transform Gemini SSE to OpenAI-compatible SSE format for the client
-    const stream = new ReadableStream({
-      async start(controller) {
-        const reader = geminiRes.body?.getReader();
-        if (!reader) {
-          controller.close();
-          return;
-        }
-
-        const decoder = new TextDecoder();
-        let buffer = "";
-
-        try {
-          while (true) {
-            const { done, value } = await reader.read();
-            if (done) break;
-
-            buffer += decoder.decode(value, { stream: true });
-            const lines = buffer.split("\n");
-            buffer = lines.pop() || "";
-
-            for (const line of lines) {
-              if (!line.startsWith("data: ")) continue;
-              const json = JSON.parse(line.slice(6));
-              const text = json.candidates?.[0]?.content?.parts?.[0]?.text;
-              if (text) {
-                const openaiChunk = {
-                  choices: [{ delta: { content: text } }],
-                };
-                controller.enqueue(
-                  new TextEncoder().encode(`data: ${JSON.stringify(openaiChunk)}\n\n`)
-                );
-              }
-            }
-          }
-        } catch (err) {
-          console.error("Stream error:", err);
-        }
-
-        // Send done signal
-        controller.enqueue(
-          new TextEncoder().encode(`data: ${JSON.stringify({ choices: [{ delta: {}, finish_reason: "stop" }] })}\n\n`)
-        );
-        controller.close();
-      },
-    });
-
-    return new Response(stream, {
+    return new Response(groqRes.body, {
       headers: {
         "Content-Type": "text/event-stream",
         "Cache-Control": "no-cache",
