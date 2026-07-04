@@ -63,7 +63,7 @@ export default function Symptoms() {
               type="checkbox"
               checked={checked.has(i)}
               onChange={() => toggle(i)}
-              className="mt-0.5 flex-shrink-0 accent-teal"
+              className="mt-0.5 flex-shrink-0 accent-blue-600"
             />
             <div>
               <strong className="text-[15px]">{item.q}</strong>
@@ -74,7 +74,7 @@ export default function Symptoms() {
       </div>
 
       {count > 0 && (
-        <div className="rounded-lg p-4 bg-teal-light/70 dark:bg-teal/10 text-center mb-10">
+        <div className="rounded-lg p-4 bg-blue-50/70 dark:bg-blue-600/10 text-center mb-10">
           {count >= 8 ? (
             <p className="text-sm font-semibold m-0">You checked {count}/12 — strongly suggests neuroplastic pain. Explore the treatment protocols below.</p>
           ) : count >= 5 ? (
@@ -94,7 +94,7 @@ export default function Symptoms() {
         { title: "Allodynia (pain from non-painful stimuli)", desc: "Things that shouldn't hurt at all now cause pain. Light touch, the pressure of clothing, a gentle hug, a breeze on your skin — these trigger genuine pain responses." },
         { title: "Sensory hypersensitivity", desc: "Your nervous system overreacts to sensory input. Bright lights feel blinding. Moderate noise is overwhelming. Strong smells trigger headaches or nausea. Your brain can't filter out background stimuli." },
       ].map((item, i) => (
-        <div key={i} className="rounded-xl p-5 bg-white dark:bg-zinc-900 border border-border dark:border-zinc-800 border-l-4 border-l-teal shadow-sm mb-4">
+        <div key={i} className="rounded-xl p-5 bg-white dark:bg-zinc-900 border border-border dark:border-zinc-800 border-l-4 border-l-blue-600 shadow-sm mb-4">
           <h3 className="text-lg font-bold mt-0 mb-1">{item.title}</h3>
           <p className="text-sm text-text-muted m-0">{item.desc}</p>
         </div>
@@ -140,7 +140,7 @@ export default function Symptoms() {
         <li><strong>Sound and light sensitivity</strong> — normal environments feel overwhelming</li>
       </ul>
 
-      <div className="rounded-xl p-5 bg-teal-light/70 dark:bg-teal/10 border border-transparent mb-8">
+      <div className="rounded-xl p-5 bg-blue-50/70 dark:bg-blue-600/10 border border-transparent mb-8">
         <p className="text-sm m-0">
           <strong>Important:</strong> Always rule out structural causes with a medical professional first.
           MRIs showing bulging discs or arthritis are common in pain-free people. Don't let normal
@@ -149,8 +149,8 @@ export default function Symptoms() {
       </div>
 
       <div className="flex gap-3 flex-wrap">
-        <Link href="/intro/science" className="inline-flex items-center px-5 py-2.5 rounded-lg bg-teal text-white font-semibold hover:bg-teal-dark transition">Next: The Science &rarr;</Link>
-        <Link href="/quiz" className="inline-flex items-center px-5 py-2.5 rounded-lg border-2 border-teal text-teal font-semibold hover:bg-teal-light transition">Take the Quiz</Link>
+        <Link href="/intro/science" className="inline-flex items-center px-5 py-2.5 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-800 transition">Next: The Science &rarr;</Link>
+        <Link href="/quiz" className="inline-flex items-center px-5 py-2.5 rounded-lg border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-50 transition">Take the Quiz</Link>
         <Link href="/protocols/prt" className="inline-flex items-center px-5 py-2.5 rounded-lg border border-border dark:border-zinc-700 text-text-muted font-semibold hover:bg-border-light dark:hover:bg-zinc-800 transition">PRT Protocol</Link>
       </div>
     </div>

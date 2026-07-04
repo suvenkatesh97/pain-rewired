@@ -41,7 +41,7 @@ export function Nav() {
           <div className="w-px h-5 bg-border-light dark:bg-border-dark mx-2" />
           <Link
             href="/chat"
-            className="flex items-center gap-1.5 px-3.5 py-1.5 text-[14px] font-semibold bg-gradient-to-r from-accent to-teal-600 text-white rounded-lg hover:from-accent-dark hover:to-teal-700 transition-all shadow-sm shadow-accent/20"
+            className="flex items-center gap-1.5 px-3.5 py-1.5 text-[14px] font-semibold bg-gradient-to-r from-accent to-blue-600 text-white rounded-lg hover:from-accent-dark hover:to-blue-700 transition-all shadow-sm shadow-accent/20"
           >
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
@@ -56,7 +56,7 @@ export function Nav() {
         <div className="flex md:hidden items-center gap-1">
           <Link
             href="/chat"
-            className="flex items-center gap-1 px-2.5 py-1 text-xs font-semibold bg-gradient-to-r from-accent to-teal-600 text-white rounded-md"
+            className="flex items-center gap-1 px-2.5 py-1 text-xs font-semibold bg-gradient-to-r from-accent to-blue-600 text-white rounded-md"
           >
             <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />

@@ -26,7 +26,7 @@ export function GlossarySearch({ terms }: { terms: Term[] }) {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search glossary..."
-          className="w-full max-w-md px-4 py-2.5 rounded-lg border border-border dark:border-zinc-700 bg-white dark:bg-zinc-900 text-text dark:text-zinc-100 placeholder:text-text-light focus:outline-none focus:ring-2 focus:ring-teal/30 focus:border-teal transition"
+          className="w-full max-w-md px-4 py-2.5 rounded-lg border border-border dark:border-zinc-700 bg-white dark:bg-zinc-900 text-text dark:text-zinc-100 placeholder:text-text-light focus:outline-none focus:ring-2 focus:ring-teal/30 focus:border-blue-600 transition"
         />
       </div>
 
@@ -39,7 +39,7 @@ export function GlossarySearch({ terms }: { terms: Term[] }) {
                 const el = document.getElementById(`glossary-${letter}`);
                 if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
               }}
-              className="w-8 h-8 rounded-md text-xs font-semibold bg-teal-light dark:bg-teal/20 text-teal dark:text-teal-light hover:bg-teal hover:text-white dark:hover:bg-teal transition-colors"
+              className="w-8 h-8 rounded-md text-xs font-semibold bg-blue-50 dark:bg-blue-600/20 text-blue-600 dark:text-blue-100 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-colors"
             >
               {letter}
             </button>
@@ -53,7 +53,7 @@ export function GlossarySearch({ terms }: { terms: Term[] }) {
         <div className="space-y-6">
           {filtered.map((term, i) => (
             <div key={i} id={`glossary-${term.word[0].toUpperCase()}`}>
-              <dt className="font-semibold text-teal dark:text-teal-light text-lg">
+              <dt className="font-semibold text-blue-600 dark:text-blue-100 text-lg">
                 {term.word}
               </dt>
               <dd className="mt-1 text-text-muted dark:text-zinc-400 leading-relaxed">

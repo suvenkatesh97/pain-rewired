@@ -8,7 +8,7 @@ export default function Treatments() {
         The treatment landscape for neuroplastic pain has transformed dramatically. Here are the evidence-based approaches — what they are, how they work, and what the research shows.
       </p>
 
-      <div className="rounded-xl p-5 bg-teal-light/70 dark:bg-teal/10 border border-transparent mb-10">
+      <div className="rounded-xl p-5 bg-blue-50/70 dark:bg-blue-600/10 border border-transparent mb-10">
         <p className="m-0 leading-relaxed text-sm">
           <strong>Core principle:</strong> All effective treatments for neuroplastic pain share one goal — <strong>teaching the brain that the pain signal is a false alarm</strong>. They differ in method but converge on the same mechanism: reducing the threat value of pain sensations so the brain stops generating them.
         </p>
@@ -20,7 +20,7 @@ export default function Treatments() {
           desc: "PRT is a system of psychological techniques that retrains the brain to interpret signals from the body correctly, breaking the chronic pain cycle. It is the most rigorously studied neuroplastic pain treatment, validated in a landmark JAMA Psychiatry trial.",
           extra: (
             <div className="space-y-4 mt-4">
-              <div className="rounded-xl p-5 bg-white dark:bg-zinc-900 border border-border dark:border-zinc-800 border-l-4 border-l-teal shadow-sm">
+              <div className="rounded-xl p-5 bg-white dark:bg-zinc-900 border border-border dark:border-zinc-800 border-l-4 border-l-blue-600 shadow-sm">
                 <h3 className="text-base font-bold mt-0 mb-2">The five components of PRT</h3>
                 <ol className="list-decimal pl-5 m-0 space-y-1.5 text-sm text-text-muted">
                   <li><strong className="text-text dark:text-zinc-100">Education</strong> — learning why pain persists due to brain mechanisms, not tissue damage</li>
@@ -30,10 +30,10 @@ export default function Treatments() {
                   <li><strong className="text-text dark:text-zinc-100">Gravitating to positive feelings</strong> — cultivating joy, connection, and safety</li>
                 </ol>
               </div>
-              <div className="rounded-xl p-5 bg-teal-light/70 dark:bg-teal/10 border border-teal dark:border-teal/30">
+              <div className="rounded-xl p-5 bg-blue-50/70 dark:bg-blue-600/10 border border-blue-600 dark:border-blue-600/30">
                 <h3 className="text-base font-bold mt-0 mb-1">The evidence</h3>
                 <p className="text-sm text-text-muted m-0">
-                  JAMA Psychiatry (2021): 66% pain-free after 8 sessions over 4 weeks. 98% improved. Results maintained at 5-year follow-up. <a href="https://jamanetwork.com/journals/jamapsychiatry/fullarticle/2784694" target="_blank" rel="noopener noreferrer" className="text-teal hover:underline">Read the study &rarr;</a>
+                  JAMA Psychiatry (2021): 66% pain-free after 8 sessions over 4 weeks. 98% improved. Results maintained at 5-year follow-up. <a href="https://jamanetwork.com/journals/jamapsychiatry/fullarticle/2784694" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Read the study &rarr;</a>
                 </p>
               </div>
             </div>
@@ -59,7 +59,7 @@ export default function Treatments() {
       ].map((section) => (
         <section key={section.num} className="mb-10">
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-10 h-10 rounded-full bg-teal text-white flex items-center justify-center font-bold text-lg flex-shrink-0">{section.num}</div>
+            <div className="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg flex-shrink-0">{section.num}</div>
             <div>
               <h2 className="text-xl font-bold m-0">{section.title}</h2>
               <p className="text-xs text-text-muted mt-0.5">{section.byline}</p>
@@ -69,12 +69,12 @@ export default function Treatments() {
           {section.extra}
           {section.num === 1 && (
             <p className="mt-3">
-              <Link href="/protocols/prt" className="text-teal font-semibold hover:underline">Full PRT protocol page &rarr;</Link>
+              <Link href="/protocols/prt" className="text-blue-600 font-semibold hover:underline">Full PRT protocol page &rarr;</Link>
             </p>
           )}
           {section.num === 3 && (
             <p className="mt-3">
-              <Link href="/protocols/schubiner" className="text-teal font-semibold hover:underline">Full Schubiner protocol page &rarr;</Link>
+              <Link href="/protocols/schubiner" className="text-blue-600 font-semibold hover:underline">Full Schubiner protocol page &rarr;</Link>
             </p>
           )}
         </section>
@@ -90,7 +90,7 @@ export default function Treatments() {
           { title: "Acceptance and Commitment Therapy (ACT)", desc: "Helps patients accept pain sensations while committing to valued actions. Reduces the struggle against pain while rebuilding a meaningful life." },
           { title: "ISTDP", desc: "Intensive Short-Term Dynamic Psychotherapy. A focused psychodynamic approach targeting emotional avoidance patterns driving physical symptoms. Meta-analysis shows significant effects for somatic disorders." },
         ].map((item, i) => (
-          <div key={i} className="rounded-xl p-5 bg-white dark:bg-zinc-900 border border-border dark:border-zinc-800 border-l-4 border-l-teal shadow-sm">
+          <div key={i} className="rounded-xl p-5 bg-white dark:bg-zinc-900 border border-border dark:border-zinc-800 border-l-4 border-l-blue-600 shadow-sm">
             <h3 className="text-base font-bold mt-0 mb-1">{item.title}</h3>
             <p className="text-sm text-text-muted m-0">{item.desc}</p>
           </div>
@@ -106,7 +106,7 @@ export default function Treatments() {
           { num: "3-4 wk", label: "Typical timeframe for results (Schubiner program)" },
         ].map((item, i) => (
           <div key={i} className="rounded-xl p-4 bg-white dark:bg-zinc-900 border border-border dark:border-zinc-800 text-center shadow-sm">
-            <div className="text-2xl font-extrabold text-teal">{item.num}</div>
+            <div className="text-2xl font-extrabold text-blue-600">{item.num}</div>
             <p className="text-xs text-text-muted mt-1 m-0">{item.label}</p>
           </div>
         ))}
@@ -127,8 +127,8 @@ export default function Treatments() {
       </div>
 
       <div className="flex gap-3 flex-wrap">
-        <Link href="/protocols/prt" className="inline-flex items-center px-5 py-2.5 rounded-lg bg-teal text-white font-semibold hover:bg-teal-dark transition">PRT Protocol &rarr;</Link>
-        <Link href="/protocols/schubiner" className="inline-flex items-center px-5 py-2.5 rounded-lg border-2 border-teal text-teal font-semibold hover:bg-teal-light transition">Schubiner's Method</Link>
+        <Link href="/protocols/prt" className="inline-flex items-center px-5 py-2.5 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-800 transition">PRT Protocol &rarr;</Link>
+        <Link href="/protocols/schubiner" className="inline-flex items-center px-5 py-2.5 rounded-lg border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-50 transition">Schubiner's Method</Link>
         <Link href="/resources" className="inline-flex items-center px-5 py-2.5 rounded-lg border border-border dark:border-zinc-700 text-text-muted font-semibold hover:bg-border-light dark:hover:bg-zinc-800 transition">All Resources</Link>
       </div>
     </div>

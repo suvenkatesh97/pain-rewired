@@ -43,7 +43,7 @@ export default async function BlogPost(props: {
               </span>
             )}
             {isResearch && (
-              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-teal-light text-teal-dark dark:bg-teal/20 dark:text-teal-300">
+              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-800 dark:bg-blue-600/20 dark:text-blue-600-300">
                 research
               </span>
             )}
@@ -52,7 +52,7 @@ export default async function BlogPost(props: {
               .map((t) => (
                 <span
                   key={t}
-                  className="inline-flex items-center px-2 py-0.5 rounded-full text-xs bg-teal-light dark:bg-teal/20 text-teal-dark dark:text-teal-300"
+                  className="inline-flex items-center px-2 py-0.5 rounded-full text-xs bg-blue-50 dark:bg-blue-600/20 text-blue-800 dark:text-blue-600-300"
                 >
                   {t}
                 </span>
@@ -63,7 +63,7 @@ export default async function BlogPost(props: {
           </h1>
           <div className="flex items-center gap-4 flex-wrap pb-6 border-b border-border dark:border-zinc-800">
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-full bg-teal-light dark:bg-teal/20 flex items-center justify-center text-xs font-bold text-teal">
+              <div className="w-7 h-7 rounded-full bg-blue-50 dark:bg-blue-600/20 flex items-center justify-center text-xs font-bold text-blue-600">
                 {isBlog ? "📝" : "📄"}
               </div>
               <span className="text-sm text-text-muted">
@@ -81,7 +81,7 @@ export default async function BlogPost(props: {
           </div>
         </header>
 
-        <div className="prose prose-teal dark:prose-invert max-w-none prose-img:rounded-xl prose-a:text-teal">
+        <div className="prose prose-blue dark:prose-invert max-w-none prose-img:rounded-xl prose-a:text-blue-600">
           <Markdown remarkPlugins={[remarkGfm]}>{post.content}</Markdown>
         </div>
 
@@ -91,7 +91,7 @@ export default async function BlogPost(props: {
               href={post.meta.source}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-4 py-1.5 rounded-lg border-2 border-teal text-teal text-sm font-semibold hover:bg-teal-light transition"
+              className="inline-flex items-center px-4 py-1.5 rounded-lg border-2 border-blue-600 text-blue-600 text-sm font-semibold hover:bg-blue-50 transition"
             >
               Read original {isBlog ? "post" : "paper"} &rarr;
             </a>
@@ -104,7 +104,7 @@ export default async function BlogPost(props: {
           </Link>
         </div>
 
-        <div className="mt-8 rounded-xl p-5 bg-teal-light/50 dark:bg-teal/10 border border-transparent">
+        <div className="mt-8 rounded-xl p-5 bg-blue-50/50 dark:bg-blue-600/10 border border-transparent">
           <p className="text-sm text-text-muted m-0">
             <strong>Disclaimer:</strong> This is a simplified summary for
             educational purposes. Always consult a healthcare professional for

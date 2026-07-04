@@ -17,7 +17,7 @@ export default function Science() {
         {[
           { title: "Nociceptive", color: "#E53E3E", desc: "Pain from actual tissue damage. Your body detects an injury and sends danger signals. Example: a broken bone, a burn, a sprain. This is \"normal\" pain — it serves a protective function." },
           { title: "Neuropathic", color: "#DD6B20", desc: "Pain from nerve damage. The nerves themselves are injured and fire abnormally. Examples: diabetic neuropathy, sciatica from a compressed nerve, post-herpetic neuralgia." },
-          { title: "Nociplastic", color: "var(--teal, #0D7C66)", desc: "Pain from altered pain processing in the nervous system — no tissue or nerve damage needed. This is neuroplastic pain. The wiring is the problem, not the hardware. It's the most common chronic pain type." },
+          { title: "Nociplastic", color: "#2563EB", desc: "Pain from altered pain processing in the nervous system — no tissue or nerve damage needed. This is neuroplastic pain. The wiring is the problem, not the hardware. It's the most common chronic pain type." },
         ].map((item, i) => (
           <div key={i} className="rounded-xl p-5 bg-white dark:bg-zinc-900 border border-border dark:border-zinc-800 shadow-sm" style={{ borderTopColor: item.color, borderTopWidth: "3px" }}>
             <h3 className="text-lg font-bold mt-0 mb-1">{item.title}</h3>
@@ -33,7 +33,7 @@ export default function Science() {
         volume knob on your pain system getting stuck at maximum.
       </p>
 
-      <div className="rounded-xl p-5 bg-white dark:bg-zinc-900 border border-border dark:border-zinc-800 border-l-4 border-l-teal shadow-sm mb-10">
+      <div className="rounded-xl p-5 bg-white dark:bg-zinc-900 border border-border dark:border-zinc-800 border-l-4 border-l-blue-600 shadow-sm mb-10">
         <h3 className="text-lg font-bold mt-0 mb-3">What changes in a sensitized nervous system:</h3>
         <ul className="list-disc pl-5 mb-0 space-y-1">
           <li><strong>Amplified signaling:</strong> Pain neurons fire more easily and more intensely</li>
@@ -71,13 +71,13 @@ export default function Science() {
       <p className="mb-4">Neuroplasticity — the brain's ability to rewire itself — is both the problem and the solution:</p>
 
       <div className="space-y-4 mb-8">
-        <div className="rounded-xl p-5 bg-white dark:bg-zinc-900 border border-border dark:border-zinc-800 border-l-4 border-l-teal shadow-sm">
+        <div className="rounded-xl p-5 bg-white dark:bg-zinc-900 border border-border dark:border-zinc-800 border-l-4 border-l-blue-600 shadow-sm">
           <p className="m-0 leading-relaxed">
             <strong>Pain can become a learned neural pathway.</strong> When neurons fire together repeatedly,
             they wire together (Hebb's law). The pain response becomes automatic — like muscle memory.
           </p>
         </div>
-        <div className="rounded-xl p-5 bg-white dark:bg-zinc-900 border border-border dark:border-zinc-800 border-l-4 border-l-teal shadow-sm">
+        <div className="rounded-xl p-5 bg-white dark:bg-zinc-900 border border-border dark:border-zinc-800 border-l-4 border-l-blue-600 shadow-sm">
           <p className="m-0 leading-relaxed">
             <strong>Pain can be unlearned through the same mechanism.</strong> By repeatedly experiencing
             sensations without fear — through techniques like somatic tracking, graded exposure, and
@@ -93,8 +93,8 @@ export default function Science() {
       </p>
 
       <div className="flex gap-3 flex-wrap">
-        <Link href="/intro/treatments" className="inline-flex items-center px-5 py-2.5 rounded-lg bg-teal text-white font-semibold hover:bg-teal-dark transition">Next: Treatments &rarr;</Link>
-        <Link href="/intro/what-is" className="inline-flex items-center px-5 py-2.5 rounded-lg border-2 border-teal text-teal font-semibold hover:bg-teal-light transition">What Is Neuroplastic Pain?</Link>
+        <Link href="/intro/treatments" className="inline-flex items-center px-5 py-2.5 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-800 transition">Next: Treatments &rarr;</Link>
+        <Link href="/intro/what-is" className="inline-flex items-center px-5 py-2.5 rounded-lg border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-50 transition">What Is Neuroplastic Pain?</Link>
         <Link href="/protocols/prt" className="inline-flex items-center px-5 py-2.5 rounded-lg border border-border dark:border-zinc-700 text-text-muted font-semibold hover:bg-border-light dark:hover:bg-zinc-800 transition">PRT Protocol</Link>
       </div>
     </div>

@@ -11,7 +11,7 @@ export default function WhatIs() {
         common form of chronic pain.
       </p>
 
-      <div className="rounded-xl p-6 bg-teal-light/70 dark:bg-teal/10 border border-teal dark:border-teal/30 mb-8">
+      <div className="rounded-xl p-6 bg-blue-50/70 dark:bg-blue-600/10 border border-blue-600 dark:border-blue-600/30 mb-8">
         <p className="font-bold text-lg mb-1">Key insight</p>
         <p className="m-0 leading-relaxed">
           Pain is a <strong>danger signal</strong> produced by the brain. Normally it alerts us to tissue
@@ -47,7 +47,7 @@ export default function WhatIs() {
             desc: "Schubiner's new book was published by Penguin/Random House. The documentary This Might Hurt brought mind-body medicine to wider audiences. The Association for the Treatment of Neuroplastic Symptoms (ATNS) now trains practitioners worldwide. Neuroplastic pain is no longer fringe — it's evidence-based mainstream medicine."
           },
         ].map((item, i) => (
-          <div key={i} className="rounded-xl p-5 bg-white dark:bg-zinc-900 border border-border dark:border-zinc-800 border-l-4 border-l-teal shadow-sm">
+          <div key={i} className="rounded-xl p-5 bg-white dark:bg-zinc-900 border border-border dark:border-zinc-800 border-l-4 border-l-blue-600 shadow-sm">
             <h3 className="text-base font-bold mb-1">{item.person} ({item.year})</h3>
             <p className="text-sm text-text-muted m-0">{item.desc}</p>
           </div>
@@ -62,7 +62,7 @@ export default function WhatIs() {
         makes predictions about what's happening and generates the corresponding experience.
       </p>
 
-      <div className="rounded-xl p-6 bg-white dark:bg-zinc-900 border border-border dark:border-zinc-800 border-t-3 border-t-teal shadow-sm mb-8">
+      <div className="rounded-xl p-6 bg-white dark:bg-zinc-900 border border-border dark:border-zinc-800 border-t-3 border-t-blue-600 shadow-sm mb-8">
         <h3 className="text-lg font-bold mt-0 mb-3">The Predict-Compare-Update cycle</h3>
         <ol className="mb-0 leading-relaxed space-y-2">
           <li><strong>Predict:</strong> Your brain constantly predicts what sensations are coming based on memory</li>
@@ -132,7 +132,7 @@ export default function WhatIs() {
         <li>Pain has a delayed onset after activity rather than immediate</li>
       </ul>
 
-      <div className="rounded-xl p-6 bg-gradient-to-br from-teal-light to-teal-light/50 dark:from-teal/10 dark:to-teal/5 border border-teal dark:border-teal/30 mb-8">
+      <div className="rounded-xl p-6 bg-gradient-to-br from-blue-50 to-blue-50/50 dark:from-blue-900/20 dark:to-blue-900/10 border border-blue-600 dark:border-blue-600/30 mb-8">
         <p className="text-lg font-semibold leading-relaxed m-0">
           <strong>Your pain is real. It can also change.</strong> The brain that learned pain can learn
           safety. Neuroplasticity — the same process that locked in the pain — is the very mechanism
@@ -141,8 +141,8 @@ export default function WhatIs() {
       </div>
 
       <div className="flex gap-3 flex-wrap">
-        <Link href="/intro/science" className="inline-flex items-center px-5 py-2.5 rounded-lg bg-teal text-white font-semibold hover:bg-teal-dark transition">Next: The Science &rarr;</Link>
-        <Link href="/intro/symptoms" className="inline-flex items-center px-5 py-2.5 rounded-lg border-2 border-teal text-teal font-semibold hover:bg-teal-light transition">Common Symptoms</Link>
+        <Link href="/intro/science" className="inline-flex items-center px-5 py-2.5 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-800 transition">Next: The Science &rarr;</Link>
+        <Link href="/intro/symptoms" className="inline-flex items-center px-5 py-2.5 rounded-lg border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-50 transition">Common Symptoms</Link>
         <Link href="/quiz" className="inline-flex items-center px-5 py-2.5 rounded-lg border border-border dark:border-zinc-700 text-text-muted font-semibold hover:bg-border-light dark:hover:bg-zinc-800 transition">Take the Quiz</Link>
       </div>
     </div>

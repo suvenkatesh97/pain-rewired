@@ -76,7 +76,7 @@ export default function Glossary() {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search glossary..."
-        className="w-full max-w-md px-4 py-2.5 rounded-lg border border-border dark:border-zinc-700 bg-white dark:bg-zinc-900 text-text dark:text-zinc-100 placeholder:text-text-light focus:outline-none focus:ring-2 focus:ring-teal/30 focus:border-teal transition mb-6"
+        className="w-full max-w-md px-4 py-2.5 rounded-lg border border-border dark:border-zinc-700 bg-white dark:bg-zinc-900 text-text dark:text-zinc-100 placeholder:text-text-light focus:outline-none focus:ring-2 focus:ring-teal/30 focus:border-blue-600 transition mb-6"
       />
 
       {!query && (
@@ -88,7 +88,7 @@ export default function Glossary() {
                 const el = document.getElementById(`sec-${letter}`);
                 if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
               }}
-              className="w-8 h-8 rounded-md text-xs font-bold bg-teal-light dark:bg-teal/20 text-teal dark:text-teal-light hover:bg-teal hover:text-white dark:hover:bg-teal transition-colors"
+              className="w-8 h-8 rounded-md text-xs font-bold bg-blue-50 dark:bg-blue-600/20 text-blue-600 dark:text-blue-100 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-colors"
             >
               {letter}
             </button>
@@ -103,7 +103,7 @@ export default function Glossary() {
           <div className="space-y-5">
             {filtered.map((t, i) => (
               <div key={i}>
-                <dt className="font-bold text-teal dark:text-teal-light text-lg">{t.term}</dt>
+                <dt className="font-bold text-blue-600 dark:text-blue-100 text-lg">{t.term}</dt>
                 <dd className="mt-1 text-text-muted dark:text-zinc-400 leading-relaxed">{t.def}</dd>
               </div>
             ))}
@@ -113,13 +113,13 @@ export default function Glossary() {
         <div className="space-y-8">
           {groupByLetter(terms).map(([letter, group]) => (
             <div key={letter}>
-              <h2 id={`sec-${letter}`} className="text-xl font-bold text-teal dark:text-teal-light border-b-2 border-teal-light dark:border-teal/20 pb-1.5 mb-3">
+              <h2 id={`sec-${letter}`} className="text-xl font-bold text-blue-600 dark:text-blue-100 border-b-2 border-blue-600-light dark:border-blue-600/20 pb-1.5 mb-3">
                 {letter}
               </h2>
               <div className="space-y-3">
                 {group.map((t, i) => (
                   <div key={i} className="rounded-lg p-4 bg-white dark:bg-zinc-900 border border-border dark:border-zinc-800">
-                    <dt className="font-bold text-teal-dark dark:text-teal-light text-sm">{t.term}</dt>
+                    <dt className="font-bold text-blue-800 dark:text-blue-100 text-sm">{t.term}</dt>
                     <dd className="mt-0.5 text-sm text-text-muted dark:text-zinc-400 leading-relaxed m-0">{t.def}</dd>
                   </div>
                 ))}

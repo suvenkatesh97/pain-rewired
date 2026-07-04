@@ -38,7 +38,7 @@ export function Footer() {
             <div className="font-semibold text-xs text-text-secondary dark:text-zinc-500 uppercase tracking-widest mb-4">Explore</div>
             <div className="flex flex-col gap-2">
               {exploreLinks.map((l) => (
-                <Link key={l.href} href={l.href} className="text-sm text-text-secondary dark:text-zinc-400 hover:text-accent dark:hover:text-teal-400 transition-colors">
+                <Link key={l.href} href={l.href} className="text-sm text-text-secondary dark:text-zinc-400 hover:text-accent dark:hover:text-blue-600-400 transition-colors">
                   {l.label}
                 </Link>
               ))}
@@ -49,17 +49,17 @@ export function Footer() {
             <div className="font-semibold text-xs text-text-secondary dark:text-zinc-500 uppercase tracking-widest mb-4">Tools & More</div>
             <div className="flex flex-col gap-2">
               {toolsLinks.map((l) => (
-                <Link key={l.href} href={l.href} className="text-sm text-text-secondary dark:text-zinc-400 hover:text-accent dark:hover:text-teal-400 transition-colors">
+                <Link key={l.href} href={l.href} className="text-sm text-text-secondary dark:text-zinc-400 hover:text-accent dark:hover:text-blue-600-400 transition-colors">
                   {l.label}
                 </Link>
               ))}
             </div>
             <div className="mt-4 flex flex-col gap-2">
-              <Link href="/about" className="text-sm text-text-secondary dark:text-zinc-400 hover:text-accent dark:hover:text-teal-400 transition-colors">About</Link>
+              <Link href="/about" className="text-sm text-text-secondary dark:text-zinc-400 hover:text-accent dark:hover:text-blue-600-400 transition-colors">About</Link>
               <a href="https://in.linkedin.com/in/sunny-venkatesh-877896194" target="_blank" rel="noopener noreferrer"
-                className="text-sm text-text-secondary dark:text-zinc-400 hover:text-accent dark:hover:text-teal-400 transition-colors">LinkedIn</a>
+                className="text-sm text-text-secondary dark:text-zinc-400 hover:text-accent dark:hover:text-blue-600-400 transition-colors">LinkedIn</a>
               <a href="https://github.com/suvenkatesh97/pain-rewired" target="_blank" rel="noopener noreferrer"
-                className="text-sm text-text-secondary dark:text-zinc-400 hover:text-accent dark:hover:text-teal-400 transition-colors">GitHub</a>
+                className="text-sm text-text-secondary dark:text-zinc-400 hover:text-accent dark:hover:text-blue-600-400 transition-colors">GitHub</a>
             </div>
           </div>
         </div>

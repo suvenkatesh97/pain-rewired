@@ -68,7 +68,7 @@ export default function FAQ() {
       <div className="space-y-8">
         {faqs.map((faq, i) => (
           <div key={i}>
-            <h2 className="text-lg font-bold text-teal dark:text-teal-light">
+            <h2 className="text-lg font-bold text-blue-600 dark:text-blue-100">
               {faq.q}
             </h2>
             <p className="text-text-muted dark:text-zinc-400 leading-relaxed mt-1">

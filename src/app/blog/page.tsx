@@ -30,10 +30,10 @@ export default function BlogIndex() {
                 href={`/blog/${post.slug}`}
                 className="no-underline text-inherit"
               >
-                <article className="rounded-xl border border-border dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5 flex items-center gap-4 shadow-sm hover:shadow-md hover:border-teal-light transition-all">
+                <article className="rounded-xl border border-border dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5 flex items-center gap-4 shadow-sm hover:shadow-md hover:border-blue-600-light transition-all">
                   <div
                     className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 text-lg"
-                    style={{ background: isBlog ? "#E0E7FF" : "var(--teal-light, #E8F5F2)" }}
+                    style={{ background: isBlog ? "#E0E7FF" : "#DBEAFE" }}
                   >
                     {isBlog ? "📝" : "📄"}
                   </div>
@@ -47,7 +47,7 @@ export default function BlogIndex() {
                         }`}>{post.meta.difficulty}</span>
                       )}
                       {isBlog && <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-indigo-100 text-indigo-800 dark:bg-indigo-900/50 dark:text-indigo-300">blog</span>}
-                      {isResearch && <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-teal-light text-teal-dark dark:bg-teal/20 dark:text-teal-300">research</span>}
+                      {isResearch && <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-800 dark:bg-blue-600/20 dark:text-blue-600-300">research</span>}
                     </div>
                     <span className="font-semibold text-[15px] leading-snug">{post.meta.title}</span>
                     <div className="text-xs text-text-muted mt-0.5">

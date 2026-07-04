@@ -26,7 +26,7 @@ export default function Home() {
             </Badge>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05]">
               Chronic pain has a{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-teal-400">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-400">
                 new explanation.
               </span>
             </h1>

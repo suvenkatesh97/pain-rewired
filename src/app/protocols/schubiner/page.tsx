@@ -8,7 +8,7 @@ export default function Schubiner() {
         A three-phase self-directed program by Dr. Howard Schubiner, integrating neuroscience education, emotional awareness, and practical brain-retraining techniques.
       </p>
 
-      <div className="rounded-xl p-5 bg-gradient-to-br from-teal-light to-teal-light/50 dark:from-teal/10 dark:to-teal/5 border border-teal dark:border-teal/30 mb-10">
+      <div className="rounded-xl p-5 bg-gradient-to-br from-blue-50 to-blue-50/50 dark:from-blue-900/20 dark:to-blue-900/10 border border-blue-600 dark:border-blue-600/30 mb-10">
         <p className="text-base m-0">
           <strong>Format:</strong> Available as a workbook (<em>Unlearn Your Pain</em>), an online program (<em>Freedom From Chronic Pain</em>), and a new 2026 Penguin/Random House book covering pain, fatigue, anxiety, and depression.
         </p>
@@ -30,7 +30,7 @@ export default function Schubiner() {
                 <li><strong>Mind Body Syndrome (MBS):</strong> Physical symptoms caused by neural circuits in the brain, not by tissue damage.</li>
                 <li><strong>Normal MRI findings don't equal pain:</strong> Bulging discs, herniations, degeneration — present in most pain-free adults over 30.</li>
               </ul>
-              <div className="rounded-lg p-4 bg-teal-light/50 dark:bg-teal/10 mt-4">
+              <div className="rounded-lg p-4 bg-blue-50/50 dark:bg-blue-600/10 mt-4">
                 <p className="text-sm m-0"><strong>Resources:</strong> Watch Schubiner's animated video series on YouTube. Read the articles on this site. Watch the documentary <em>This Might Hurt</em>. Build genuine intellectual conviction.</p>
               </div>
             </>
@@ -48,7 +48,7 @@ export default function Schubiner() {
                 { title: "3. Personality Assessment", desc: "Schubiner identifies common MBS traits: perfectionism, people-pleasing, conscientiousness, high self-criticism, difficulty expressing anger. Write down which apply to you and how they've shaped your life." },
                 { title: "4. Inconsistency Log", desc: "Note times when pain doesn't follow structural patterns: pain that moves, good and bad days with no trigger, pain when resting but better when distracted. Structural pain is consistent — neuroplastic pain shifts." },
               ].map((item, i) => (
-                <div key={i} className="rounded-lg p-4 bg-white dark:bg-zinc-900 border border-border dark:border-zinc-800 border-l-4 border-l-teal shadow-sm my-3">
+                <div key={i} className="rounded-lg p-4 bg-white dark:bg-zinc-900 border border-border dark:border-zinc-800 border-l-4 border-l-blue-600 shadow-sm my-3">
                   <h4 className="text-sm font-bold mt-0 mb-0.5">{item.title}</h4>
                   <p className="text-sm text-text-muted m-0">{item.desc}</p>
                 </div>
@@ -70,7 +70,7 @@ export default function Schubiner() {
                 { label: "Technique E", title: "Gradual Re-engagement", desc: "Don't wait until you're pain-free. Start small — bend slightly, walk for 2 minutes. Send safety messages throughout. The brain learns: \"We did that thing we were afraid of — and we're okay.\"" },
                 { label: "Technique F", title: "Meditation and Mindfulness", desc: "Schubiner provides guided meditations for MBS recovery. Practice observing sensations without fear, calming the nervous system, and developing the inner observer." },
               ].map((t, i) => (
-                <div key={i} className="rounded-lg p-4 bg-white dark:bg-zinc-900 border border-border dark:border-zinc-800 border-l-4 border-l-teal shadow-sm my-3">
+                <div key={i} className="rounded-lg p-4 bg-white dark:bg-zinc-900 border border-border dark:border-zinc-800 border-l-4 border-l-blue-600 shadow-sm my-3">
                   <h4 className="text-sm font-bold mt-0 mb-0.5">{t.label}: {t.title}</h4>
                   <p className="text-sm text-text-muted m-0">{t.desc}</p>
                 </div>
@@ -81,7 +81,7 @@ export default function Schubiner() {
       ].map((phase) => (
         <section key={phase.num} className="mb-10">
           <div className="flex items-center gap-3 mb-3">
-            <div className="w-9 h-9 rounded-full bg-teal text-white flex items-center justify-center font-bold flex-shrink-0">{phase.num}</div>
+            <div className="w-9 h-9 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold flex-shrink-0">{phase.num}</div>
             <h3 className="text-lg font-bold m-0">{phase.title}</h3>
           </div>
           <div className="text-text-muted leading-relaxed space-y-2">{phase.body}</div>
@@ -109,8 +109,8 @@ export default function Schubiner() {
       ))}
 
       <div className="flex gap-3 flex-wrap mt-8">
-        <Link href="/protocols/prt" className="inline-flex items-center px-5 py-2.5 rounded-lg bg-teal text-white font-semibold hover:bg-teal-dark transition">PRT Protocol &rarr;</Link>
-        <Link href="/intro/treatments" className="inline-flex items-center px-5 py-2.5 rounded-lg border-2 border-teal text-teal font-semibold hover:bg-teal-light transition">All Treatments</Link>
+        <Link href="/protocols/prt" className="inline-flex items-center px-5 py-2.5 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-800 transition">PRT Protocol &rarr;</Link>
+        <Link href="/intro/treatments" className="inline-flex items-center px-5 py-2.5 rounded-lg border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-50 transition">All Treatments</Link>
         <Link href="/resources" className="inline-flex items-center px-5 py-2.5 rounded-lg border border-border dark:border-zinc-700 text-text-muted font-semibold hover:bg-border-light dark:hover:bg-zinc-800 transition">Books &amp; Resources</Link>
       </div>
     </div>

@@ -7,7 +7,7 @@ export default function About() {
       <p className="text-text-muted mb-8">Why I built Pain Rewired.</p>
 
       <div className="flex items-start gap-6 mb-8 flex-wrap">
-        <div className="w-16 h-16 rounded-full bg-teal-light dark:bg-teal/20 border-2 border-teal flex items-center justify-center text-2xl font-bold text-teal flex-shrink-0">
+        <div className="w-16 h-16 rounded-full bg-blue-50 dark:bg-blue-600/20 border-2 border-blue-600 flex items-center justify-center text-2xl font-bold text-blue-600 flex-shrink-0">
           S
         </div>
         <div>
@@ -16,7 +16,7 @@ export default function About() {
         </div>
       </div>
 
-      <div className="prose prose-teal dark:prose-invert max-w-none space-y-6">
+      <div className="prose prose-blue dark:prose-invert max-w-none space-y-6">
         <p>
           Hi, I'm Sunny. I built Pain Rewired because the research on
           neuroplastic pain fundamentally changed how I think about chronic pain —

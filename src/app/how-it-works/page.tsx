@@ -60,7 +60,7 @@ const chatSteps = [
 
 const tech = [
   { name: "Next.js 16", desc: "React framework with App Router, server components, and static site generation. Hosted on Vercel's free tier." },
-  { name: "Tailwind CSS v4", desc: "Utility-first CSS with custom teal theme, dark mode support, and the shadcn/ui component library." },
+  { name: "Tailwind CSS v4", desc: "Utility-first CSS with custom navy blue theme, dark mode support, and the shadcn/ui component library." },
   { name: "shadcn/ui", desc: "Professionally designed, accessible React components built on Radix UI primitives." },
   { name: "Supabase", desc: "Open-source Firebase alternative. Stores document vectors with pgvector extension for similarity search." },
   { name: "Groq", desc: "Free inference platform running Llama 3.3 70B. No credit card, no rate limits on free tier." },

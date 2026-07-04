@@ -8,10 +8,10 @@ export default function PRT() {
         A step-by-step protocol developed by Alan Gordon, LCSW. PRT retrains the brain to reinterpret pain signals as safe — breaking the chronic pain cycle at its source.
       </p>
 
-      <div className="rounded-xl p-5 bg-gradient-to-br from-teal-light to-teal-light/50 dark:from-teal/10 dark:to-teal/5 border border-teal dark:border-teal/30 mb-10">
+      <div className="rounded-xl p-5 bg-gradient-to-br from-blue-50 to-blue-50/50 dark:from-blue-900/20 dark:to-blue-900/10 border border-blue-600 dark:border-blue-600/30 mb-10">
         <p className="text-base m-0 font-semibold">
           Research: RCT in JAMA Psychiatry (2021) — 66% pain-free after 4 weeks, 98% improved. Results maintained at 5-year follow-up.{" "}
-          <a href="https://jamanetwork.com/journals/jamapsychiatry/fullarticle/2784694" target="_blank" rel="noopener noreferrer" className="text-teal hover:underline">Read the study &rarr;</a>
+          <a href="https://jamanetwork.com/journals/jamapsychiatry/fullarticle/2784694" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Read the study &rarr;</a>
         </p>
       </div>
 
@@ -58,7 +58,7 @@ export default function PRT() {
           body: (
             <>
               <p>This is where the real neural rewiring happens. Somatic tracking involves attending to pain sensations with <strong>curiosity and safety</strong> rather than fear and resistance.</p>
-              <div className="rounded-lg p-5 bg-white dark:bg-zinc-900 border border-border dark:border-zinc-800 border-l-4 border-l-teal shadow-sm my-4">
+              <div className="rounded-lg p-5 bg-white dark:bg-zinc-900 border border-border dark:border-zinc-800 border-l-4 border-l-blue-600 shadow-sm my-4">
                 <h4 className="text-base font-bold mt-0 mb-3">How to do somatic tracking</h4>
                 <ol className="list-decimal pl-5 m-0 space-y-1.5 text-sm text-text-muted">
                   <li><strong className="text-text dark:text-zinc-100">Find the sensation.</strong> Notice where the pain is. Don't resist it — acknowledge it.</li>
@@ -109,7 +109,7 @@ export default function PRT() {
       ].map((comp) => (
         <section key={comp.num} className="mb-10">
           <div className="flex items-center gap-3 mb-3">
-            <div className="w-9 h-9 rounded-full bg-teal text-white flex items-center justify-center font-bold flex-shrink-0">{comp.num}</div>
+            <div className="w-9 h-9 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold flex-shrink-0">{comp.num}</div>
             <h3 className="text-lg font-bold m-0">{comp.title}</h3>
           </div>
           <div className="text-text-muted leading-relaxed space-y-3">{comp.body}</div>
@@ -124,15 +124,15 @@ export default function PRT() {
         <li><strong>Months 2-6:</strong> Integration. New neural patterns stabilize. Occasional flares are shorter and respond quickly.</li>
       </ul>
 
-      <div className="rounded-xl p-5 bg-teal-light/70 dark:bg-teal/10 border border-transparent mb-8">
+      <div className="rounded-xl p-5 bg-blue-50/70 dark:bg-blue-600/10 border border-transparent mb-8">
         <p className="text-sm m-0">
           <strong>When to seek help:</strong> While many people recover using Alan Gordon's book <em>The Way Out</em>, PRT is most effective with a trained practitioner. The PRT practitioner directory lists certified providers. Group workshops are also available and more affordable.
         </p>
       </div>
 
       <div className="flex gap-3 flex-wrap">
-        <Link href="/intro/treatments" className="inline-flex items-center px-5 py-2.5 rounded-lg bg-teal text-white font-semibold hover:bg-teal-dark transition">All Treatments &rarr;</Link>
-        <Link href="/protocols/schubiner" className="inline-flex items-center px-5 py-2.5 rounded-lg border-2 border-teal text-teal font-semibold hover:bg-teal-light transition">Schubiner's Method</Link>
+        <Link href="/intro/treatments" className="inline-flex items-center px-5 py-2.5 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-800 transition">All Treatments &rarr;</Link>
+        <Link href="/protocols/schubiner" className="inline-flex items-center px-5 py-2.5 rounded-lg border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-50 transition">Schubiner's Method</Link>
         <Link href="/resources" className="inline-flex items-center px-5 py-2.5 rounded-lg border border-border dark:border-zinc-700 text-text-muted font-semibold hover:bg-border-light dark:hover:bg-zinc-800 transition">Resources</Link>
       </div>
     </div>

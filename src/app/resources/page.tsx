@@ -8,7 +8,7 @@ export default function Resources() {
         Books, courses, practitioners, and tools for understanding and healing neuroplastic pain.
       </p>
 
-      <div className="prose prose-teal dark:prose-invert max-w-none space-y-12">
+      <div className="prose prose-blue dark:prose-invert max-w-none space-y-12">
         <section>
           <h2>Books</h2>
           <div className="space-y-4">
