@@ -47,6 +47,17 @@ export default function RootLayout({
     >
       <body className="min-h-screen flex flex-col bg-surface text-text-primary dark:bg-surface-dark dark:text-zinc-100">
         <ThemeProvider>
+          <div className="bg-blue-600 text-white text-center text-xs font-medium py-1.5 px-4">
+            Work in progress — this site is actively being built.{" "}
+            <a
+              href="https://github.com/suvenkatesh97/pain-rewired"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2 hover:text-blue-100"
+            >
+              Follow along on GitHub
+            </a>
+          </div>
           <Nav />
           <main className="flex-1">{children}</main>
           <Footer />
