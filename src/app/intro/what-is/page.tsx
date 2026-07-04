@@ -125,7 +125,7 @@ export default function WhatIs() {
         <li>Multiple body systems are affected (pain + fatigue + gut issues)</li>
         <li>Stress makes it significantly worse</li>
         <li>Treatments targeting the body haven't helped — or made things worse</li>
-        <li>Medical tests come back normal or show &ldquo;age-appropriate&rdquo; changes</li>
+        <li>Medical tests come back normal or show "age-appropriate" changes</li>
         <li>It began during or after a stressful period in your life</li>
         <li>You have symmetrical symptoms (both sides of the body)</li>
         <li>Pain has triggers unrelated to the body (weather, sounds, smells, time of day)</li>

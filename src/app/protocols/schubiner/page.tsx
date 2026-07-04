@@ -92,7 +92,7 @@ export default function Schubiner() {
       <ul className="list-disc pl-5 mb-8 space-y-2">
         <li><strong>Accessibility:</strong> The workbook and online program are designed to be self-directed. Most people can do this without a therapist.</li>
         <li><strong>Brevity:</strong> Three weeks of consistent practice often produces significant results. The brain can change quickly when the approach is correct.</li>
-        <li><strong>Integration:</strong> Combines neuroscience education with emotional work. You don't have to choose between &ldquo;it's the brain&rdquo; and &ldquo;it's the emotions.&rdquo;</li>
+        <li><strong>Integration:</strong> Combines neuroscience education with emotional work. You don't have to choose between "it's the brain" and "it's the emotions."</li>
         <li><strong>Broad scope:</strong> Addresses pain, chronic fatigue, anxiety, depression, IBS, and other MBS-related conditions.</li>
       </ul>
 

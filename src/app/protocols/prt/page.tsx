@@ -28,7 +28,7 @@ export default function PRT() {
                 <li>Pain is a danger signal produced by the brain, not a direct readout of body damage</li>
                 <li>The brain can learn to generate pain even when tissues are healthy</li>
                 <li>Neuroplasticity means the brain can change — both to learn and unlearn pain</li>
-                <li>Your pain is 100% real — you're not &ldquo;making it up&rdquo;</li>
+                <li>Your pain is 100% real — you're not "making it up"</li>
                 <li>Understanding this reduces fear, which is the first step to recovery</li>
               </ul>
             </>
@@ -48,7 +48,7 @@ export default function PRT() {
                 <li>Have structural treatments not helped?</li>
                 <li>Does stress make it worse? Do enjoyable activities make it better?</li>
               </ul>
-              <p className="text-sm text-text-muted"><strong>Tip:</strong> Write these down. Create a list you can revisit when doubt creeps in. Bulging discs and &ldquo;degeneration&rdquo; are normal age-related findings in pain-free people.</p>
+              <p className="text-sm text-text-muted"><strong>Tip:</strong> Write these down. Create a list you can revisit when doubt creeps in. Bulging discs and "degeneration" are normal age-related findings in pain-free people.</p>
             </>
           ),
         },
@@ -63,7 +63,7 @@ export default function PRT() {
                 <ol className="list-decimal pl-5 m-0 space-y-1.5 text-sm text-text-muted">
                   <li><strong className="text-text dark:text-zinc-100">Find the sensation.</strong> Notice where the pain is. Don't resist it — acknowledge it.</li>
                   <li><strong className="text-text dark:text-zinc-100">Observe with curiosity.</strong> What does it actually feel like? Hot? Tight? Pulsing? Get descriptive, not judgmental.</li>
-                  <li><strong className="text-text dark:text-zinc-100">Send messages of safety.</strong> &ldquo;This sensation is safe. There is no danger. My body is okay.&rdquo;</li>
+                  <li><strong className="text-text dark:text-zinc-100">Send messages of safety.</strong> "This sensation is safe. There is no danger. My body is okay."</li>
                   <li><strong className="text-text dark:text-zinc-100">Don't try to make it go away.</strong> Accepting the sensation's presence while reinforcing safety paradoxically allows it to fade.</li>
                   <li><strong className="text-text dark:text-zinc-100">Shift attention gently.</strong> Broadly include the room, sounds, breathing. Return to the sensation occasionally with curiosity.</li>
                   <li><strong className="text-text dark:text-zinc-100">Repeat.</strong> Practice multiple times per day. Each time you face pain with safety, the neural pathway weakens.</li>
@@ -72,7 +72,7 @@ export default function PRT() {
               <div className="rounded-lg p-4 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800">
                 <h4 className="text-base font-bold mt-0 mb-2">Common mistakes</h4>
                 <ul className="list-disc pl-5 m-0 text-sm space-y-1">
-                  <li><strong>Using somatic tracking to &ldquo;fix&rdquo; pain</strong> — the goal is to experience sensation safely, not make it disappear.</li>
+                  <li><strong>Using somatic tracking to "fix" pain</strong> — the goal is to experience sensation safely, not make it disappear.</li>
                   <li><strong>Frustration when pain doesn't change</strong> — sometimes nothing happens in the moment. Rewiring happens over time.</li>
                   <li><strong>Bracing against the sensation</strong> — tension and resistance tell the brain there's danger. Soften around the pain.</li>
                 </ul>
@@ -85,7 +85,7 @@ export default function PRT() {
           title: "Addressing emotional threats",
           body: (
             <ul className="list-disc pl-5 space-y-1">
-              <li><strong>Identify patterns:</strong> When pain spikes, ask: &ldquo;What was I feeling right before?&rdquo;</li>
+              <li><strong>Identify patterns:</strong> When pain spikes, ask: "What was I feeling right before?"</li>
               <li><strong>Allow and process:</strong> Give yourself permission to feel the emotion without judgment.</li>
               <li><strong>Challenge self-criticism:</strong> The inner critic is a major pain amplifier. Practice self-compassion.</li>
               <li><strong>Set boundaries:</strong> People-pleasing and over-giving create internal pressure.</li>

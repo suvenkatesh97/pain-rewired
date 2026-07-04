@@ -125,7 +125,7 @@ export default function Symptoms() {
         <li>75% of fibromyalgia patients also have IBS</li>
         <li>Migraine commonly co-occurs with chronic fatigue, IBS, and pelvic pain</li>
         <li>TMJ relates to widespread body pain and headaches</li>
-        <li>People with one &ldquo;functional&rdquo; disorder often have 3-5</li>
+        <li>People with one "functional" disorder often have 3-5</li>
       </ul>
       <p className="mb-8">This isn't bad luck. It's the same underlying mechanism expressing in different parts of the body — which means the same brain-based approaches can help across the board.</p>
 
