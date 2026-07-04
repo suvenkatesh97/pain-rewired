@@ -9,13 +9,13 @@ import re
 import sys
 from datetime import date
 
-import google.generativeai as genai
+from google import genai
 
 POSTS_DIR = os.path.join(os.path.dirname(__file__), "..", "src", "content", "posts")
 PROMPT_FILE = os.path.join(os.path.dirname(__file__), "prompts", "summarize.txt")
 BLOG_PROMPT_FILE = os.path.join(os.path.dirname(__file__), "prompts", "blog_summarize.txt")
 
-genai.configure(api_key=os.environ.get("GEMINI_API_KEY", ""))
+MODEL = "gemini-2.0-flash"
 
 
 def slugify(title):
@@ -31,26 +31,26 @@ def load_prompt(path):
         return f.read()
 
 
-def summarize(paper, model, prompt_path):
+def summarize(item, client, prompt_path):
     prompt = load_prompt(prompt_path)
-    content = paper.get("abstract") or paper.get("summary") or "No content available."
+    content = item.get("abstract") or item.get("summary") or "No content available."
     if len(content) > 8000:
         content = content[:8000] + "..."
 
     full_prompt = (
         f"{prompt}\n\n---\n"
-        f"Title: {paper['title']}\n"
-        f"Source: {paper.get('source_name', '')}\n"
-        f"Authors: {paper.get('authors', '')}\n"
-        f"Date: {paper.get('pubdate', '')}\n\n"
+        f"Title: {item['title']}\n"
+        f"Source: {item.get('source_name', '')}\n"
+        f"Authors: {item.get('authors', '')}\n"
+        f"Date: {item.get('pubdate', '')}\n\n"
         f"Content:\n{content}"
     )
 
     try:
-        resp = model.generate_content(full_prompt)
+        resp = client.models.generate_content(model=MODEL, contents=full_prompt)
         return resp.text
     except Exception as e:
-        print(f"  Error summarizing {paper.get('pmid') or paper.get('url')}: {e}", file=sys.stderr)
+        print(f"  Error summarizing {item.get('pmid') or item.get('url')}: {e}", file=sys.stderr)
         return None
 
 
@@ -87,7 +87,7 @@ def main():
         print("Error: GEMINI_API_KEY environment variable not set.", file=sys.stderr)
         sys.exit(1)
 
-    model = genai.GenerativeModel("models/gemini-1.5-flash")
+    client = genai.Client(api_key=api_key)
 
     raw = sys.stdin.read()
     try:
@@ -105,33 +105,17 @@ def main():
 
     os.makedirs(POSTS_DIR, exist_ok=True)
 
-    for item in papers:
+    for item in papers + blogs:
         title = item["title"]
-        print(f"Summarizing paper: {title[:60]}...", file=sys.stderr)
-        summary = summarize(item, model, PROMPT_FILE)
-        if not summary:
-            continue
-        md = make_markdown(item, summary, "pubmed")
-        slug = slugify(title)
-        today = date.today().isoformat()
-        fname = f"{today}-{slug}.md"
-        fpath = os.path.join(POSTS_DIR, fname)
-        counter = 1
-        while os.path.exists(fpath):
-            fname = f"{today}-{slug}-{counter}.md"
-            fpath = os.path.join(POSTS_DIR, fname)
-            counter += 1
-        with open(fpath, "w") as f:
-            f.write(md)
-        print(f"  -> {fpath}", file=sys.stderr)
+        source_type = item.get("source_type", "pubmed")
+        prompt_path = BLOG_PROMPT_FILE if source_type == "blog" else PROMPT_FILE
+        print(f"Summarizing {source_type}: {title[:60]}...", file=sys.stderr)
 
-    for item in blogs:
-        title = item["title"]
-        print(f"Summarizing blog: {title[:60]}...", file=sys.stderr)
-        summary = summarize(item, model, BLOG_PROMPT_FILE)
+        summary = summarize(item, client, prompt_path)
         if not summary:
             continue
-        md = make_markdown(item, summary, "blog")
+
+        md = make_markdown(item, summary, source_type)
         slug = slugify(title)
         today = date.today().isoformat()
         fname = f"{today}-{slug}.md"

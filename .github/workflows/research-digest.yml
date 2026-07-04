@@ -20,7 +20,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install Python dependencies
-        run: pip install google-generativeai requests feedparser
+        run: pip install google-genai requests feedparser
 
       - name: Run pipeline
         env:
