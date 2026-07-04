@@ -28,7 +28,7 @@ PUBMED_QUERIES = [
 
 BLOG_FEEDS = [
     "https://www.psychologytoday.com/us/blog/unlearn-your-pain/feed",
-    "https://neuroplasticpainguide.org/feed",
+    # "https://neuroplasticpainguide.org/feed",  # feed returns empty
     "https://painpsychologycenter.com/feed",
 ]
 
