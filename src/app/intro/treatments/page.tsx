@@ -114,10 +114,10 @@ export default function Treatments() {
 
       <h2 className="text-2xl font-bold mt-12 mb-4">What tends not to work</h2>
       <ul className="list-disc pl-5 mb-8 space-y-2">
-        <li><strong>Opioids and pain medications</strong> — may provide temporary relief but don&apos;t address the learned neural pathway. Long-term use can worsen central sensitization.</li>
+        <li><strong>Opioids and pain medications</strong> — may provide temporary relief but don't address the learned neural pathway. Long-term use can worsen central sensitization.</li>
         <li><strong>Surgery</strong> — studies show back surgery outcomes are no better than conservative care for chronic pain without clear nerve compression.</li>
         <li><strong>Injections</strong> — epidural steroid injections show no long-term benefit over placebo in systematic reviews.</li>
-        <li><strong>Passive physical therapy</strong> — massage, ultrasound, TENS can provide temporary comfort but don&apos;t retrain the brain.</li>
+        <li><strong>Passive physical therapy</strong> — massage, ultrasound, TENS can provide temporary comfort but don't retrain the brain.</li>
       </ul>
 
       <div className="rounded-xl p-5 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 mb-8">
@@ -128,7 +128,7 @@ export default function Treatments() {
 
       <div className="flex gap-3 flex-wrap">
         <Link href="/protocols/prt" className="inline-flex items-center px-5 py-2.5 rounded-lg bg-teal text-white font-semibold hover:bg-teal-dark transition">PRT Protocol &rarr;</Link>
-        <Link href="/protocols/schubiner" className="inline-flex items-center px-5 py-2.5 rounded-lg border-2 border-teal text-teal font-semibold hover:bg-teal-light transition">Schubiner&apos;s Method</Link>
+        <Link href="/protocols/schubiner" className="inline-flex items-center px-5 py-2.5 rounded-lg border-2 border-teal text-teal font-semibold hover:bg-teal-light transition">Schubiner's Method</Link>
         <Link href="/resources" className="inline-flex items-center px-5 py-2.5 rounded-lg border border-border dark:border-zinc-700 text-text-muted font-semibold hover:bg-border-light dark:hover:bg-zinc-800 transition">All Resources</Link>
       </div>
     </div>

@@ -102,7 +102,7 @@ export default function Chat() {
             <p className="text-lg mb-2">Ask anything about neuroplastic pain</p>
             <p className="text-sm">
               Try: &ldquo;What is somatic tracking?&rdquo; &ldquo;How does PRT
-              work?&rdquo; &ldquo;What&apos;s the evidence for neuroplastic
+              work?&rdquo; &ldquo;What's the evidence for neuroplastic
               pain?&rdquo;
             </p>
           </div>

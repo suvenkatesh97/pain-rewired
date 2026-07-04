@@ -18,14 +18,14 @@ export default function About() {
 
       <div className="prose prose-teal dark:prose-invert max-w-none space-y-6">
         <p>
-          Hi, I&apos;m Sunny. I built Pain Rewired because the research on
+          Hi, I'm Sunny. I built Pain Rewired because the research on
           neuroplastic pain fundamentally changed how I think about chronic pain —
           and I believe this knowledge should be accessible to everyone who needs it.
         </p>
 
         <p>
           When I first encountered the concept of neuroplastic pain — the idea
-          that the brain can generate real physical pain even when there&apos;s no
+          that the brain can generate real physical pain even when there's no
           tissue damage — it was a paradigm shift. Like many people, I had always
           assumed that chronic pain meant ongoing physical damage. But the research
           tells a different, more hopeful story.
@@ -64,8 +64,8 @@ export default function About() {
         <h2 className="!mt-10">Important Disclaimer</h2>
 
         <p>
-          I&apos;m not a doctor, and Pain Rewired is not a substitute for medical
-          advice. This is an educational resource. If you&apos;re dealing with
+          I'm not a doctor, and Pain Rewired is not a substitute for medical
+          advice. This is an educational resource. If you're dealing with
           chronic pain, please consult a healthcare professional — ideally one
           familiar with neuroplastic pain and evidence-based treatment approaches
           like PRT, EAET, and pain reprocessing therapy.
@@ -74,7 +74,7 @@ export default function About() {
         <h2 className="!mt-10">Connect</h2>
 
         <p>
-          I&apos;d love to hear from you — feedback, suggestions for papers to
+          I'd love to hear from you — feedback, suggestions for papers to
           cover, or just to connect. You can find me on{" "}
           <a
             href="https://in.linkedin.com/in/sunny-venkatesh-877896194"

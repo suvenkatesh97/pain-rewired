@@ -43,7 +43,7 @@ export default function Resources() {
                 Hidden From View — Allan Abbass, MD &amp; Howard Schubiner, MD
               </h3>
               <p className="!mt-0">
-                A clinician&apos;s guide to psychophysiologic disorders. More
+                A clinician's guide to psychophysiologic disorders. More
                 technical but valuable for understanding the mechanisms connecting
                 emotions and physical symptoms.
               </p>
@@ -110,7 +110,7 @@ export default function Resources() {
             <div>
               <h3 className="!mt-0 !mb-1">Tell Me About Your Pain</h3>
               <p className="!mt-0">
-                Alan Gordon and Alon Ziv&apos;s podcast exploring personal stories
+                Alan Gordon and Alon Ziv's podcast exploring personal stories
                 of chronic pain recovery through PRT.
               </p>
             </div>

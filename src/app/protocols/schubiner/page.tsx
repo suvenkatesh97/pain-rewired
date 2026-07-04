@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Schubiner() {
   return (
     <div className="max-w-[720px] mx-auto px-6 py-16">
-      <h1 className="text-4xl font-extrabold mb-2">Schubiner&apos;s Unlearn Your Pain Method</h1>
+      <h1 className="text-4xl font-extrabold mb-2">Schubiner's Unlearn Your Pain Method</h1>
       <p className="text-text-muted text-lg max-w-[650px] mb-6">
         A three-phase self-directed program by Dr. Howard Schubiner, integrating neuroscience education, emotional awareness, and practical brain-retraining techniques.
       </p>
@@ -22,16 +22,16 @@ export default function Schubiner() {
           title: "EDUCATION: Understanding Mind Body Syndrome",
           body: (
             <>
-              <p>The first phase is cognitive — you need to truly understand that your brain can generate real physical pain. This isn&apos;t about positive thinking. It&apos;s about understanding the mechanism so your brain&apos;s threat response can begin to shift.</p>
+              <p>The first phase is cognitive — you need to truly understand that your brain can generate real physical pain. This isn't about positive thinking. It's about understanding the mechanism so your brain's threat response can begin to shift.</p>
               <h4 className="font-bold mt-4 mb-2">Key concepts to learn:</h4>
               <ul className="list-disc pl-5 space-y-1">
                 <li><strong>Predictive processing:</strong> Your brain constructs your experience based on expectations. If it expects pain, it can generate pain — even in healthy tissue.</li>
                 <li><strong>Learned neural pathways:</strong> Pain can become a habit of the brain. Like any habit, it can be changed.</li>
                 <li><strong>Mind Body Syndrome (MBS):</strong> Physical symptoms caused by neural circuits in the brain, not by tissue damage.</li>
-                <li><strong>Normal MRI findings don&apos;t equal pain:</strong> Bulging discs, herniations, degeneration — present in most pain-free adults over 30.</li>
+                <li><strong>Normal MRI findings don't equal pain:</strong> Bulging discs, herniations, degeneration — present in most pain-free adults over 30.</li>
               </ul>
               <div className="rounded-lg p-4 bg-teal-light/50 dark:bg-teal/10 mt-4">
-                <p className="text-sm m-0"><strong>Resources:</strong> Watch Schubiner&apos;s animated video series on YouTube. Read the articles on this site. Watch the documentary <em>This Might Hurt</em>. Build genuine intellectual conviction.</p>
+                <p className="text-sm m-0"><strong>Resources:</strong> Watch Schubiner's animated video series on YouTube. Read the articles on this site. Watch the documentary <em>This Might Hurt</em>. Build genuine intellectual conviction.</p>
               </div>
             </>
           ),
@@ -41,12 +41,12 @@ export default function Schubiner() {
           title: "EVIDENCE: Building personal conviction",
           body: (
             <>
-              <p>Generic understanding isn&apos;t sufficient — you need to see how MBS applies to YOUR life.</p>
+              <p>Generic understanding isn't sufficient — you need to see how MBS applies to YOUR life.</p>
               {[
                 { title: "1. The Stress-Pain Connection Log", desc: "Track pain and stress levels for one week. Rate each 1-10 three times daily. Look for correlations — does pain spike during stressful meetings or after conflicts?" },
                 { title: "2. Life Story Review", desc: "Write a timeline of your life, noting significant stressful events, losses, traumas. Overlay your pain history. Look for patterns. Common triggers: childhood adversity, relationship breakups, work burnout, caregiving stress." },
-                { title: "3. Personality Assessment", desc: "Schubiner identifies common MBS traits: perfectionism, people-pleasing, conscientiousness, high self-criticism, difficulty expressing anger. Write down which apply to you and how they&apos;ve shaped your life." },
-                { title: "4. Inconsistency Log", desc: "Note times when pain doesn&apos;t follow structural patterns: pain that moves, good and bad days with no trigger, pain when resting but better when distracted. Structural pain is consistent — neuroplastic pain shifts." },
+                { title: "3. Personality Assessment", desc: "Schubiner identifies common MBS traits: perfectionism, people-pleasing, conscientiousness, high self-criticism, difficulty expressing anger. Write down which apply to you and how they've shaped your life." },
+                { title: "4. Inconsistency Log", desc: "Note times when pain doesn't follow structural patterns: pain that moves, good and bad days with no trigger, pain when resting but better when distracted. Structural pain is consistent — neuroplastic pain shifts." },
               ].map((item, i) => (
                 <div key={i} className="rounded-lg p-4 bg-white dark:bg-zinc-900 border border-border dark:border-zinc-800 border-l-4 border-l-teal shadow-sm my-3">
                   <h4 className="text-sm font-bold mt-0 mb-0.5">{item.title}</h4>
@@ -88,11 +88,11 @@ export default function Schubiner() {
         </section>
       ))}
 
-      <h2 className="text-2xl font-bold mt-12 mb-4">What makes Schubiner&apos;s approach distinctive</h2>
+      <h2 className="text-2xl font-bold mt-12 mb-4">What makes Schubiner's approach distinctive</h2>
       <ul className="list-disc pl-5 mb-8 space-y-2">
         <li><strong>Accessibility:</strong> The workbook and online program are designed to be self-directed. Most people can do this without a therapist.</li>
         <li><strong>Brevity:</strong> Three weeks of consistent practice often produces significant results. The brain can change quickly when the approach is correct.</li>
-        <li><strong>Integration:</strong> Combines neuroscience education with emotional work. You don&apos;t have to choose between &ldquo;it&apos;s the brain&rdquo; and &ldquo;it&apos;s the emotions.&rdquo;</li>
+        <li><strong>Integration:</strong> Combines neuroscience education with emotional work. You don't have to choose between &ldquo;it's the brain&rdquo; and &ldquo;it's the emotions.&rdquo;</li>
         <li><strong>Broad scope:</strong> Addresses pain, chronic fatigue, anxiety, depression, IBS, and other MBS-related conditions.</li>
       </ul>
 

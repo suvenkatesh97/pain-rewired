@@ -28,7 +28,7 @@ export default function PRT() {
                 <li>Pain is a danger signal produced by the brain, not a direct readout of body damage</li>
                 <li>The brain can learn to generate pain even when tissues are healthy</li>
                 <li>Neuroplasticity means the brain can change — both to learn and unlearn pain</li>
-                <li>Your pain is 100% real — you&apos;re not &ldquo;making it up&rdquo;</li>
+                <li>Your pain is 100% real — you're not &ldquo;making it up&rdquo;</li>
                 <li>Understanding this reduces fear, which is the first step to recovery</li>
               </ul>
             </>
@@ -61,10 +61,10 @@ export default function PRT() {
               <div className="rounded-lg p-5 bg-white dark:bg-zinc-900 border border-border dark:border-zinc-800 border-l-4 border-l-teal shadow-sm my-4">
                 <h4 className="text-base font-bold mt-0 mb-3">How to do somatic tracking</h4>
                 <ol className="list-decimal pl-5 m-0 space-y-1.5 text-sm text-text-muted">
-                  <li><strong className="text-text dark:text-zinc-100">Find the sensation.</strong> Notice where the pain is. Don&apos;t resist it — acknowledge it.</li>
+                  <li><strong className="text-text dark:text-zinc-100">Find the sensation.</strong> Notice where the pain is. Don't resist it — acknowledge it.</li>
                   <li><strong className="text-text dark:text-zinc-100">Observe with curiosity.</strong> What does it actually feel like? Hot? Tight? Pulsing? Get descriptive, not judgmental.</li>
                   <li><strong className="text-text dark:text-zinc-100">Send messages of safety.</strong> &ldquo;This sensation is safe. There is no danger. My body is okay.&rdquo;</li>
-                  <li><strong className="text-text dark:text-zinc-100">Don&apos;t try to make it go away.</strong> Accepting the sensation&apos;s presence while reinforcing safety paradoxically allows it to fade.</li>
+                  <li><strong className="text-text dark:text-zinc-100">Don't try to make it go away.</strong> Accepting the sensation's presence while reinforcing safety paradoxically allows it to fade.</li>
                   <li><strong className="text-text dark:text-zinc-100">Shift attention gently.</strong> Broadly include the room, sounds, breathing. Return to the sensation occasionally with curiosity.</li>
                   <li><strong className="text-text dark:text-zinc-100">Repeat.</strong> Practice multiple times per day. Each time you face pain with safety, the neural pathway weakens.</li>
                 </ol>
@@ -73,8 +73,8 @@ export default function PRT() {
                 <h4 className="text-base font-bold mt-0 mb-2">Common mistakes</h4>
                 <ul className="list-disc pl-5 m-0 text-sm space-y-1">
                   <li><strong>Using somatic tracking to &ldquo;fix&rdquo; pain</strong> — the goal is to experience sensation safely, not make it disappear.</li>
-                  <li><strong>Frustration when pain doesn&apos;t change</strong> — sometimes nothing happens in the moment. Rewiring happens over time.</li>
-                  <li><strong>Bracing against the sensation</strong> — tension and resistance tell the brain there&apos;s danger. Soften around the pain.</li>
+                  <li><strong>Frustration when pain doesn't change</strong> — sometimes nothing happens in the moment. Rewiring happens over time.</li>
+                  <li><strong>Bracing against the sensation</strong> — tension and resistance tell the brain there's danger. Soften around the pain.</li>
                 </ul>
               </div>
             </>
@@ -98,11 +98,11 @@ export default function PRT() {
           title: "Gravitating toward positive feelings",
           body: (
             <ul className="list-disc pl-5 space-y-1">
-              <li><strong>Do things you enjoy</strong> — even when you don&apos;t feel like it. Joy sends safety signals.</li>
+              <li><strong>Do things you enjoy</strong> — even when you don't feel like it. Joy sends safety signals.</li>
               <li><strong>Connect with people</strong> — social connection is a strong antidote to threat physiology.</li>
-              <li><strong>Practice gratitude</strong> — not as toxic positivity, but as genuine noticing of what&apos;s good.</li>
+              <li><strong>Practice gratitude</strong> — not as toxic positivity, but as genuine noticing of what's good.</li>
               <li><strong>Engage in meaningful activity</strong> — purpose and meaning activate resilience circuits.</li>
-              <li><strong>Move your body gently</strong> — gradually reintroduce activities you&apos;ve been avoiding.</li>
+              <li><strong>Move your body gently</strong> — gradually reintroduce activities you've been avoiding.</li>
             </ul>
           ),
         },
@@ -119,20 +119,20 @@ export default function PRT() {
       <h2 className="text-2xl font-bold mt-12 mb-4">What to expect during PRT recovery</h2>
       <ul className="list-disc pl-5 mb-8 space-y-2">
         <li><strong>Weeks 1-2:</strong> Education phase. Learning often brings immediate relief — your brain starts updating its danger assessment.</li>
-        <li><strong>Weeks 2-4:</strong> Active rewiring. Daily somatic tracking. Pain may fluctuate — this is normal. The brain is testing whether it&apos;s safe.</li>
+        <li><strong>Weeks 2-4:</strong> Active rewiring. Daily somatic tracking. Pain may fluctuate — this is normal. The brain is testing whether it's safe.</li>
         <li><strong>Weeks 4-8:</strong> Consolidation. Pain often reduces significantly. Emotional processing deepens. Old triggers lose power.</li>
         <li><strong>Months 2-6:</strong> Integration. New neural patterns stabilize. Occasional flares are shorter and respond quickly.</li>
       </ul>
 
       <div className="rounded-xl p-5 bg-teal-light/70 dark:bg-teal/10 border border-transparent mb-8">
         <p className="text-sm m-0">
-          <strong>When to seek help:</strong> While many people recover using Alan Gordon&apos;s book <em>The Way Out</em>, PRT is most effective with a trained practitioner. The PRT practitioner directory lists certified providers. Group workshops are also available and more affordable.
+          <strong>When to seek help:</strong> While many people recover using Alan Gordon's book <em>The Way Out</em>, PRT is most effective with a trained practitioner. The PRT practitioner directory lists certified providers. Group workshops are also available and more affordable.
         </p>
       </div>
 
       <div className="flex gap-3 flex-wrap">
         <Link href="/intro/treatments" className="inline-flex items-center px-5 py-2.5 rounded-lg bg-teal text-white font-semibold hover:bg-teal-dark transition">All Treatments &rarr;</Link>
-        <Link href="/protocols/schubiner" className="inline-flex items-center px-5 py-2.5 rounded-lg border-2 border-teal text-teal font-semibold hover:bg-teal-light transition">Schubiner&apos;s Method</Link>
+        <Link href="/protocols/schubiner" className="inline-flex items-center px-5 py-2.5 rounded-lg border-2 border-teal text-teal font-semibold hover:bg-teal-light transition">Schubiner's Method</Link>
         <Link href="/resources" className="inline-flex items-center px-5 py-2.5 rounded-lg border border-border dark:border-zinc-700 text-text-muted font-semibold hover:bg-border-light dark:hover:bg-zinc-800 transition">Resources</Link>
       </div>
     </div>

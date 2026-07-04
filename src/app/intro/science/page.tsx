@@ -7,7 +7,7 @@ export default function Science() {
       <p className="text-lg text-text-muted max-w-[650px] mb-10 leading-relaxed">
         Understanding the neuroscience behind neuroplastic pain is itself therapeutic. Studies show
         that <strong>Pain Neuroscience Education</strong> — simply learning how pain works — reduces
-        pain intensity, fear, and disability. Here&apos;s the evidence.
+        pain intensity, fear, and disability. Here's the evidence.
       </p>
 
       <h2 className="text-2xl font-bold mb-6">The Three Types of Pain</h2>
@@ -38,7 +38,7 @@ export default function Science() {
         <ul className="list-disc pl-5 mb-0 space-y-1">
           <li><strong>Amplified signaling:</strong> Pain neurons fire more easily and more intensely</li>
           <li><strong>Expanded receptive fields:</strong> Pain spreads beyond the original injury area</li>
-          <li><strong>Reduced inhibition:</strong> The brain&apos;s natural pain-control system weakens</li>
+          <li><strong>Reduced inhibition:</strong> The brain's natural pain-control system weakens</li>
           <li><strong>Cross-system activation:</strong> Pain circuits connect to fear, anxiety, and memory circuits</li>
           <li><strong>Glial activation:</strong> Immune cells release inflammatory molecules that maintain the sensitized state</li>
         </ul>
@@ -68,13 +68,13 @@ export default function Science() {
       </div>
 
       <h2 className="text-2xl font-bold mt-10 mb-4">The brain can learn — and unlearn</h2>
-      <p className="mb-4">Neuroplasticity — the brain&apos;s ability to rewire itself — is both the problem and the solution:</p>
+      <p className="mb-4">Neuroplasticity — the brain's ability to rewire itself — is both the problem and the solution:</p>
 
       <div className="space-y-4 mb-8">
         <div className="rounded-xl p-5 bg-white dark:bg-zinc-900 border border-border dark:border-zinc-800 border-l-4 border-l-teal shadow-sm">
           <p className="m-0 leading-relaxed">
             <strong>Pain can become a learned neural pathway.</strong> When neurons fire together repeatedly,
-            they wire together (Hebb&apos;s law). The pain response becomes automatic — like muscle memory.
+            they wire together (Hebb's law). The pain response becomes automatic — like muscle memory.
           </p>
         </div>
         <div className="rounded-xl p-5 bg-white dark:bg-zinc-900 border border-border dark:border-zinc-800 border-l-4 border-l-teal shadow-sm">
@@ -89,7 +89,7 @@ export default function Science() {
       <p className="mb-8">
         The 5-year follow-up to the Boulder PRT study confirms this: once the brain updates its
         pain predictions, the changes tend to stick. Recovery is not symptom management —
-        it&apos;s genuine neural reconfiguration.
+        it's genuine neural reconfiguration.
       </p>
 
       <div className="flex gap-3 flex-wrap">

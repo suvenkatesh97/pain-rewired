@@ -82,7 +82,7 @@ export default function Symptoms() {
           ) : count >= 2 ? (
             <p className="text-sm font-semibold m-0">You checked {count}/12 — some indicators present. Read the science page for more context.</p>
           ) : (
-            <p className="text-sm font-semibold m-0">You checked {count}/12 — if you&apos;re still in pain without clear structural cause, consider seeing a PRT physician.</p>
+            <p className="text-sm font-semibold m-0">You checked {count}/12 — if you're still in pain without clear structural cause, consider seeing a PRT physician.</p>
           )}
         </div>
       )}
@@ -120,14 +120,14 @@ export default function Symptoms() {
       </div>
 
       <h2 className="text-2xl font-bold mt-10 mb-4">Why you have multiple conditions</h2>
-      <p className="mb-4">If you checked off several conditions above, that&apos;s not unusual — it&apos;s expected. The central nervous system can generate symptoms in any system it regulates:</p>
+      <p className="mb-4">If you checked off several conditions above, that's not unusual — it's expected. The central nervous system can generate symptoms in any system it regulates:</p>
       <ul className="list-disc pl-5 mb-4 space-y-1">
         <li>75% of fibromyalgia patients also have IBS</li>
         <li>Migraine commonly co-occurs with chronic fatigue, IBS, and pelvic pain</li>
         <li>TMJ relates to widespread body pain and headaches</li>
         <li>People with one &ldquo;functional&rdquo; disorder often have 3-5</li>
       </ul>
-      <p className="mb-8">This isn&apos;t bad luck. It&apos;s the same underlying mechanism expressing in different parts of the body — which means the same brain-based approaches can help across the board.</p>
+      <p className="mb-8">This isn't bad luck. It's the same underlying mechanism expressing in different parts of the body — which means the same brain-based approaches can help across the board.</p>
 
       <h2 className="text-2xl font-bold mt-10 mb-4">Other common symptoms</h2>
       <ul className="list-disc pl-5 mb-8 space-y-1">
@@ -143,7 +143,7 @@ export default function Symptoms() {
       <div className="rounded-xl p-5 bg-teal-light/70 dark:bg-teal/10 border border-transparent mb-8">
         <p className="text-sm m-0">
           <strong>Important:</strong> Always rule out structural causes with a medical professional first.
-          MRIs showing bulging discs or arthritis are common in pain-free people. Don&apos;t let normal
+          MRIs showing bulging discs or arthritis are common in pain-free people. Don't let normal
           age-related findings convince you that recovery is impossible.
         </p>
       </div>
