@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-Embedding pipeline: chunks books and site content, embeds with HF MiniLM-L6,
+Embedding pipeline: chunks books and site content, embeds locally with MiniLM-L6,
 and stores in Supabase pgvector table.
 
 Usage:
   python3 scripts/embed.py
 
 Requires:
-  pip install requests numpy python-dotenv
+  pip install requests numpy python-dotenv sentence-transformers torch
   SUPABASE_URL and SUPABASE_SERVICE_KEY (service_role key) in .env
 """
 
@@ -16,18 +16,22 @@ import sys
 import json
 import time
 import requests
+import numpy as np
 from pathlib import Path
 from dotenv import load_dotenv
+from sentence_transformers import SentenceTransformer
 
 load_dotenv()
 
 SUPABASE_URL = os.getenv("SUPABASE_URL") or os.getenv("NEXT_PUBLIC_SUPABASE_URL")
-SUPABASE_KEY = os.getenv("SUPABASE_SERVICE_KEY")  # service_role key required for inserts
-
-HF_EMBED_URL = "https://api-inference.huggingface.co/models/sentence-transformers/all-MiniLM-L6-v2"
+SUPABASE_KEY = os.getenv("SUPABASE_SERVICE_KEY")
 
 CHUNK_SIZE = 500
 CHUNK_OVERLAP = 100
+
+print("Loading embedding model...")
+MODEL = SentenceTransformer("all-MiniLM-L6-v2")
+print("Model loaded.")
 
 def chunk_text(text: str, source: str, chunk_size: int = CHUNK_SIZE, overlap: int = CHUNK_OVERLAP):
     words = text.split()
@@ -40,10 +44,8 @@ def chunk_text(text: str, source: str, chunk_size: int = CHUNK_SIZE, overlap: in
     return chunks
 
 def embed(texts: list[str]) -> list[list[float]]:
-    res = requests.post(HF_EMBED_URL, json={"inputs": texts, "options": {"wait_for_model": True}})
-    res.raise_for_status()
-    data = res.json()
-    return data if isinstance(data[0], list) else [data]
+    embeddings = MODEL.encode(texts, normalize_embeddings=True)
+    return embeddings.tolist() if isinstance(embeddings, np.ndarray) else embeddings
 
 def clear_documents():
     if not SUPABASE_KEY:

@@ -2,7 +2,7 @@ import { NextRequest } from "next/server";
 
 const GROQ_API_KEY = process.env.GROQ_API_KEY;
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const SUPABASE_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 const HF_API_URL = "https://api-inference.huggingface.co/models/sentence-transformers/all-MiniLM-L6-v2";
 
 async function embed(text: string): Promise<number[]> {
@@ -17,14 +17,14 @@ async function embed(text: string): Promise<number[]> {
 }
 
 async function searchDocuments(embedding: number[]) {
-  if (!SUPABASE_URL || !SUPABASE_KEY) return [];
+  if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY) return [];
   try {
     const res = await fetch(`${SUPABASE_URL}/rest/v1/rpc/search_documents`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        apikey: SUPABASE_KEY,
-        Authorization: `Bearer ${SUPABASE_KEY}`,
+        apikey: SUPABASE_SERVICE_KEY,
+        Authorization: `Bearer ${SUPABASE_SERVICE_KEY}`,
       },
       body: JSON.stringify({
         query_embedding: embedding,
