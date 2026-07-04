@@ -29,7 +29,7 @@ PUBMED_QUERIES = [
 BLOG_FEEDS = [
     "https://www.psychologytoday.com/us/blog/unlearn-your-pain/feed",
     # "https://neuroplasticpainguide.org/feed",  # feed returns empty
-    "https://painpsychologycenter.com/feed",
+    # "https://painpsychologycenter.com/feed",  # contains only placeholder content
 ]
 
 DAYS_BACK = 90

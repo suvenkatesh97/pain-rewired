@@ -1,21 +1,35 @@
 """
-Take papers/blogs from fetch.py and generate simplified summaries using Gemini.
-Outputs markdown files to src/content/posts/.
+Take papers/blogs from fetch.py and generate simplified summaries.
+Blogs with existing summaries use them directly.
+Research papers are summarized with Gemini (rate-limited).
 """
 
 import json
 import os
 import re
 import sys
+import time
 from datetime import date
+from email.utils import parsedate_to_datetime
 
 from google import genai
 
 POSTS_DIR = os.path.join(os.path.dirname(__file__), "..", "src", "content", "posts")
 PROMPT_FILE = os.path.join(os.path.dirname(__file__), "prompts", "summarize.txt")
-BLOG_PROMPT_FILE = os.path.join(os.path.dirname(__file__), "prompts", "blog_summarize.txt")
 
 MODEL = "gemini-2.0-flash"
+MAX_PAPERS_PER_RUN = 5
+DELAY_BETWEEN = 5
+
+
+def parse_date(s):
+    if not s:
+        return date.today().isoformat()
+    try:
+        dt = parsedate_to_datetime(s)
+        return dt.strftime("%Y-%m-%d")
+    except Exception:
+        return s[:10]
 
 
 def slugify(title):
@@ -31,7 +45,7 @@ def load_prompt(path):
         return f.read()
 
 
-def summarize(item, client, prompt_path):
+def summarize_with_gemini(item, client, prompt_path):
     prompt = load_prompt(prompt_path)
     content = item.get("abstract") or item.get("summary") or "No content available."
     if len(content) > 8000:
@@ -50,13 +64,28 @@ def summarize(item, client, prompt_path):
         resp = client.models.generate_content(model=MODEL, contents=full_prompt)
         return resp.text
     except Exception as e:
-        print(f"  Error summarizing {item.get('pmid') or item.get('url')}: {e}", file=sys.stderr)
+        print(f"  Error: {e}", file=sys.stderr)
         return None
+
+
+def format_blog_directly(item):
+    """Format a blog post using its existing summary."""
+    summary = item.get("summary", "")
+    # Strip HTML
+    summary = re.sub(r"<[^>]+>", "", summary)
+    author = item.get("authors", "") or item.get("author", "")
+
+    return (
+        f"**Key takeaway:**\n\n"
+        f"{summary}\n\n"
+        f"*This post originally appeared on {item.get('source_name', 'a blog')}"
+        f"{f' by {author}' if author else ''}.*"
+    )
 
 
 def make_markdown(item, summary, source_type="pubmed"):
     title = item["title"]
-    pubdate = item.get("pubdate", "")[:10]
+    pubdate = parse_date(item.get("pubdate", ""))
     source = item.get("url", "")
     authors = item.get("authors", "") or item.get("author", "")
     journal = item.get("source_name", "")
@@ -79,6 +108,21 @@ journal: "{esc(journal)}"
 {summary}
 """
     return frontmatter
+
+
+def write_post(item, md_content, source_type):
+    slug = slugify(item["title"])
+    today = date.today().isoformat()
+    fname = f"{today}-{slug}.md"
+    fpath = os.path.join(POSTS_DIR, fname)
+    counter = 1
+    while os.path.exists(fpath):
+        fname = f"{today}-{slug}-{counter}.md"
+        fpath = os.path.join(POSTS_DIR, fname)
+        counter += 1
+    with open(fpath, "w") as f:
+        f.write(md_content)
+    print(f"  -> {fpath}", file=sys.stderr)
 
 
 def main():
@@ -105,29 +149,28 @@ def main():
 
     os.makedirs(POSTS_DIR, exist_ok=True)
 
-    for item in papers + blogs:
+    # Process blog posts — use existing summaries directly
+    for item in blogs:
         title = item["title"]
-        source_type = item.get("source_type", "pubmed")
-        prompt_path = BLOG_PROMPT_FILE if source_type == "blog" else PROMPT_FILE
-        print(f"Summarizing {source_type}: {title[:60]}...", file=sys.stderr)
+        print(f"Formatting blog: {title[:60]}...", file=sys.stderr)
+        summary = format_blog_directly(item)
+        md = make_markdown(item, summary, "blog")
+        write_post(item, md, "blog")
 
-        summary = summarize(item, client, prompt_path)
+    # Process research papers — summarize with Gemini (rate-limited)
+    for i, item in enumerate(papers[:MAX_PAPERS_PER_RUN]):
+        title = item["title"]
+        print(f"Summarizing paper ({i+1}/{min(len(papers), MAX_PAPERS_PER_RUN)}): {title[:60]}...", file=sys.stderr)
+
+        summary = summarize_with_gemini(item, client, PROMPT_FILE)
         if not summary:
             continue
 
-        md = make_markdown(item, summary, source_type)
-        slug = slugify(title)
-        today = date.today().isoformat()
-        fname = f"{today}-{slug}.md"
-        fpath = os.path.join(POSTS_DIR, fname)
-        counter = 1
-        while os.path.exists(fpath):
-            fname = f"{today}-{slug}-{counter}.md"
-            fpath = os.path.join(POSTS_DIR, fname)
-            counter += 1
-        with open(fpath, "w") as f:
-            f.write(md)
-        print(f"  -> {fpath}", file=sys.stderr)
+        md = make_markdown(item, summary, "pubmed")
+        write_post(item, md, "pubmed")
+
+        if i < min(len(papers), MAX_PAPERS_PER_RUN) - 1:
+            time.sleep(DELAY_BETWEEN)
 
 
 if __name__ == "__main__":
