@@ -2,9 +2,11 @@ name: Weekly Research Digest
 
 on:
   schedule:
-    # Every Monday at 8:00 AM UTC
     - cron: '0 8 * * 1'
-  workflow_dispatch: # Allow manual trigger
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   digest:
@@ -18,8 +20,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install Python dependencies
-        run: |
-          pip install google-generativeai requests feedparser
+        run: pip install google-generativeai requests feedparser
 
       - name: Run pipeline
         env:
@@ -33,7 +34,6 @@ jobs:
         run: |
           git add -A
           if git diff --cached --quiet; then
-            echo "No new posts to commit."
             echo "changed=false" >> $GITHUB_OUTPUT
           else
             echo "changed=true" >> $GITHUB_OUTPUT
@@ -44,6 +44,5 @@ jobs:
         run: |
           git config user.name "Pain Rewired Bot"
           git config user.email "bot@painrewired.vercel.app"
-          git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git
           git commit -m "Auto: add weekly research digest posts"
           git push
