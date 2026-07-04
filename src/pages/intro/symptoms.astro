@@ -2,67 +2,161 @@
 import Base from '../../layouts/Base.astro';
 ---
 
-<Base title="Common Symptoms & Conditions">
+<Base title="Symptoms & Conditions">
   <article class="container page-section">
-    <h1>Common Symptoms and Conditions</h1>
+    <h1>Symptoms and Conditions</h1>
 
-    <p>
-      Neuroplastic pain doesn't look the same for everyone, but there are patterns. If you recognize 
-      several of these, it's worth exploring whether central sensitization is part of your picture.
+    <p style="font-size: 1.1rem; color: var(--text-muted); max-width: 650px;">
+      Neuroplastic pain can manifest in almost any body system. Here's the full picture of what
+      it looks like — and how to tell if your symptoms are brain-generated.
     </p>
 
-    <h2>The Three Hallmarks</h2>
+    <h2>How to identify neuroplastic pain: the 12-question checklist</h2>
+    <p>
+      The Pain Reprocessing Therapy Center provides a set of criteria to help determine whether
+      pain is neuroplastic. The more boxes you check, the more likely a mind-body component is
+      involved:
+    </p>
 
-    <div class="card" style="margin: 1rem 0;">
-      <h3 style="margin-top: 0;">Hyperalgesia</h3>
-      <p style="margin-bottom: 0;">Things that should hurt a little hurt a LOT. A mild bump feels severe. Your pain volume knob is cranked up.</p>
+    <div class="card" style="margin: 1.5rem 0; border: 1px solid var(--border);">
+      <div style="display: flex; flex-direction: column; gap: 0.6rem; margin-top: 0.5rem;">
+        {[
+          { q: 'Did your pain begin during or after a period of significant stress?', note: 'Stress activates the sympathetic nervous system and primes the brain for pain.' },
+          { q: 'Did the pain start without a clear injury?', note: 'Or with an injury that should have healed by now (6+ months ago).' },
+          { q: 'Are your symptoms inconsistent?', note: 'Good days and bad days, or pain that comes and goes unpredictably.' },
+          { q: 'Do symptoms move or spread around your body?', note: 'Pain that migrates to new locations without new injuries.' },
+          { q: 'Do you have multiple symptoms affecting different body systems?', note: 'Pain, fatigue, digestive issues, sleep problems — the more systems involved, the more likely central sensitization.' },
+          { q: 'Are symptoms triggered or worsened by stress and emotions?', note: 'Work stress, conflict, anxiety, even positive excitement can spike symptoms.' },
+          { q: 'Do you have triggers unrelated to your body?', note: 'Weather changes, sounds, smells, certain times of day, particular environments.' },
+          { q: 'Are your symptoms symmetrical?', note: 'The same pain in both knees, both wrists, both sides of the body — structural issues rarely match perfectly.' },
+          { q: 'Does pain have a delayed onset after activity?', note: 'Structural pain hurts during/immediately after. Neuroplastic pain often arrives hours or a day later.' },
+          { q: 'Have you experienced childhood adversity or trauma?', note: 'ACEs (Adverse Childhood Experiences) are strongly linked to chronic pain in adulthood.' },
+          { q: 'Would you describe yourself as perfectionistic, conscientious, a people-pleaser, or highly self-critical?', note: 'These personality traits create sustained internal pressure that can manifest as physical symptoms.' },
+          { q: 'Do medical tests come back normal or show only minor findings?', note: 'MRI findings like bulging discs or "degenerative changes" are present in most pain-free adults too.' },
+        ].map((item, i) => (
+          <label style="display: flex; align-items: flex-start; gap: 0.5rem; padding: 0.5rem 0; border-bottom: 1px solid var(--border); cursor: pointer;">
+            <input type="checkbox" style="margin-top: 0.2rem; flex-shrink: 0;" />
+            <div>
+              <strong style="font-size: 0.95rem;">{item.q}</strong>
+              <p style="margin: 0.15rem 0 0; font-size: 0.8rem; color: var(--text-muted);">{item.note}</p>
+            </div>
+          </label>
+        ))}
+      </div>
+      <div id="checklist-score" style="margin-top: 1.5rem; padding: 1rem; background: var(--teal-light); border-radius: var(--radius); text-align: center; display: none;">
+        <p style="margin: 0; font-weight: 600;" id="score-text"></p>
+      </div>
     </div>
 
-    <div class="card" style="margin: 1rem 0;">
-      <h3 style="margin-top: 0;">Allodynia</h3>
-      <p style="margin-bottom: 0;">Things that shouldn't hurt at all now cause pain. A gentle touch, the pressure of clothing, a hug — these trigger pain.</p>
+    <script>
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      const scoreDiv = document.getElementById('checklist-score');
+      const scoreText = document.getElementById('score-text');
+      checkboxes.forEach(cb => {
+        cb.addEventListener('change', () => {
+          const checked = document.querySelectorAll('input[type="checkbox"]:checked').length;
+          scoreDiv.style.display = 'block';
+          if (checked >= 8) scoreText.textContent = `You checked ${checked}/12 — strongly suggests neuroplastic pain. Explore the treatment protocols below.`;
+          else if (checked >= 5) scoreText.textContent = `You checked ${checked}/12 — moderate likelihood of neuroplastic pain. Worth investigating with a PRT-trained practitioner.`;
+          else if (checked >= 2) scoreText.textContent = `You checked ${checked}/12 — some indicators present. Read the science page for more context.`;
+          else scoreText.textContent = `You checked ${checked}/12 — if you're still in pain without clear structural cause, consider seeing a PRT physician for evaluation.`;
+        });
+      });
+    </script>
+
+    <h2>The three hallmarks of central sensitization</h2>
+
+    <div class="card" style="margin: 1rem 0; border-left: 4px solid var(--teal);">
+      <h3 style="margin-top: 0;">Hyperalgesia (amplified pain)</h3>
+      <p style="margin-bottom: 0;">Things that should hurt a little hurt a LOT. Your pain volume is stuck on high. A mild bump feels severe. Normal muscle soreness after exercise becomes disabling pain.</p>
     </div>
 
-    <div class="card" style="margin: 1rem 0;">
-      <h3 style="margin-top: 0;">Sensory Hypersensitivity</h3>
-      <p style="margin-bottom: 0;">Bright lights, loud noises, strong smells, busy environments — they feel overwhelming or even painful.</p>
+    <div class="card" style="margin: 1rem 0; border-left: 4px solid var(--teal);">
+      <h3 style="margin-top: 0;">Allodynia (pain from non-painful stimuli)</h3>
+      <p style="margin-bottom: 0;">Things that shouldn't hurt at all now cause pain. Light touch, the pressure of clothing, a gentle hug, a breeze on your skin — these trigger genuine pain responses.</p>
     </div>
 
-    <h2>Other Common Symptoms</h2>
+    <div class="card" style="margin: 1rem 0; border-left: 4px solid var(--teal);">
+      <h3 style="margin-top: 0;">Sensory hypersensitivity</h3>
+      <p style="margin-bottom: 0;">Your nervous system overreacts to sensory input. Bright lights feel blinding. Moderate noise is overwhelming. Strong smells trigger headaches or nausea. Crowded spaces are exhausting. Your brain can't filter out background stimuli.</p>
+    </div>
+
+    <h2>Conditions linked to neuroplastic mechanisms</h2>
+    <p>
+      Research shows these conditions frequently involve central sensitization and respond to
+      brain-based treatments. Many people have several of these simultaneously — which is exactly
+      what you'd expect if they share a common mechanism.
+    </p>
+
+    <h3>Pain conditions</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; margin: 0.75rem 0;">
+      {[
+        'Chronic back pain', 'Chronic neck pain', 'Fibromyalgia', 'Tension headaches',
+        'Migraine (chronic)', 'TMJ / jaw pain', 'Pelvic pain', 'Interstitial cystitis',
+        'Vulvodynia', 'Plantar fasciitis', 'Repetitive strain injury', 'Carpal tunnel syndrome',
+        'Whiplash syndrome', 'Chronic tendonitis', 'Shoulder pain', 'Hip pain',
+        'Knee pain (without structural cause)', 'Neuropathy (idiopathic)', 'CRPS / RSD',
+        'Thoracic outlet syndrome', 'Piriformis syndrome', 'Myofascial pain syndrome',
+      ].map(c => (
+        <div class="card" style="padding: 0.7rem 1rem; font-size: 0.9rem;">{c}</div>
+      ))}
+    </div>
+
+    <h3>Other body systems</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; margin: 0.75rem 0;">
+      {[
+        'Irritable bowel syndrome (IBS)', 'Chronic fatigue syndrome (ME/CFS)', 'Long COVID',
+        'POTS (postural orthostatic tachycardia)', 'Tinnitus (ringing ears)',
+        'Insomnia', 'Chronic nausea', 'Dizziness / vertigo', 'Multiple chemical sensitivity',
+        'Chronic itching', 'Brain fog / cognitive issues', 'Anxiety disorders',
+        'Depression', 'Restless leg syndrome', 'Ehlers-Danlos hypermobility (pain component)',
+      ].map(c => (
+        <div class="card" style="padding: 0.7rem 1rem; font-size: 0.9rem;">{c}</div>
+      ))}
+    </div>
+
+    <h2>Why you have multiple conditions</h2>
+    <p>
+      If you checked off several conditions above, that's not unusual — it's expected. When the
+      central nervous system becomes sensitized, it can generate symptoms in <em>any</em> system
+      it regulates. The brain's alarm system is global, not local. This is why:
+    </p>
     <ul>
-      <li><strong>Widespread pain</strong> — pain in multiple areas that shifts location</li>
-      <li><strong>Fatigue</strong> — deep, unrefreshing tiredness</li>
-      <li><strong>Sleep problems</strong> — difficulty falling or staying asleep</li>
-      <li><strong>Brain fog</strong> — trouble concentrating or remembering</li>
-      <li><strong>Stress sensitivity</strong> — pain spikes during or after stress</li>
-      <li><strong>Weather sensitivity</strong> — pain changes with weather pressure</li>
-      <li><strong>Exercise intolerance</strong> — activity triggers flare-ups that last days</li>
+      <li>75% of fibromyalgia patients also have IBS</li>
+      <li>Migraine commonly co-occurs with chronic fatigue, IBS, and pelvic pain</li>
+      <li>TMJ relates to widespread body pain and headaches</li>
+      <li>People with one "functional" disorder (IBS, fibromyalgia, chronic fatigue) often have 3-5</li>
+    </ul>
+    <p>
+      This isn't bad luck. It's the same underlying mechanism expressing in different parts of
+      the body — which means the same brain-based approaches can help across the board.
+    </p>
+
+    <h2>Other common symptoms</h2>
+    <ul>
+      <li><strong>Unrefreshing sleep</strong> — you sleep 8-10 hours but wake up exhausted</li>
+      <li><strong>Post-exertional malaise</strong> — activity triggers a crash that lasts days</li>
+      <li><strong>Temperature dysregulation</strong> — feeling too hot or cold</li>
+      <li><strong>Exercise intolerance</strong> — what used to be easy now causes flare-ups</li>
+      <li><strong>Emotional lability</strong> — crying easily, irritability, mood swings</li>
+      <li><strong>Concentration problems</strong> — difficulty reading, following conversations, multitasking</li>
+      <li><strong>Sound and light sensitivity</strong> — normal environments feel overwhelming</li>
     </ul>
 
-    <h2>Conditions Linked to Central Sensitization</h2>
-    <p>These conditions share the same underlying mechanism and often co-occur:</p>
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem;">
-      <div class="card"><strong>Fibromyalgia</strong><br />Widespread pain, fatigue, sleep issues</div>
-      <div class="card"><strong>Chronic back/neck pain</strong><br />Pain persisting beyond tissue healing</div>
-      <div class="card"><strong>Migraine</strong><br />Frequent or chronic headaches</div>
-      <div class="card"><strong>IBS</strong><br />Gut pain, bloating, altered bowel habits</div>
-      <div class="card"><strong>TMJ disorder</strong><br />Jaw pain, clicking, tension</div>
-      <div class="card"><strong>Chronic pelvic pain</strong><br />Pelvic pain without clear structural cause</div>
-      <div class="card"><strong>Restless leg syndrome</strong><br />Uncomfortable urge to move legs</div>
-      <div class="card"><strong>Interstitial cystitis</strong><br />Bladder pain and urgency</div>
+    <div class="card" style="background: var(--teal-light); margin: 1.5rem 0;">
+      <p style="margin: 0; font-size: 0.95rem;">
+        <strong>Important:</strong> Always rule out structural causes with a medical professional first.
+        Many people with neuroplastic pain also have some structural issues — the question is whether
+        those issues explain the <em>severity</em> of the pain. MRIs showing bulging discs or arthritis
+        are common in pain-free people. Don't let normal age-related findings convince you that recovery
+        is impossible.
+      </p>
     </div>
-
-    <h2>When to consider neuroplastic pain</h2>
-    <p>
-      A strong clue is if you have <strong>multiple conditions</strong> from the list above, or if 
-      <strong>tests come back normal</strong> despite persistent pain, or if <strong>treatments targeting 
-      the body</strong> (surgery, injections, physical therapy) haven't helped or made things worse.
-    </p>
 
     <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
       <a href="/intro/science" class="btn btn-primary">Next: The Science →</a>
-      <a href="/quiz" class="btn btn-outline">Take the self-assessment quiz</a>
+      <a href="/quiz" class="btn btn-outline">Take the Quiz</a>
+      <a href="/protocols/prt" class="btn btn-outline">PRT Protocol</a>
     </div>
   </article>
 </Base>

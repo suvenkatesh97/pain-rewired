@@ -2,41 +2,89 @@
 import Base from '../layouts/Base.astro';
 
 const terms = [
-  { term: "Allodynia", def: "Pain from something that shouldn't hurt — like light touch, clothing, or a hug." },
-  { term: "Central Sensitization", def: "A process where the central nervous system becomes hypersensitive, amplifying pain signals beyond what's normal." },
-  { term: "Central Sensitization Syndromes", def: "A group of overlapping conditions (fibromyalgia, IBS, TMJ, etc.) that share central sensitization as a mechanism." },
-  { term: "EAET", def: "Emotional Awareness and Expression Therapy. A treatment that helps process emotions contributing to pain." },
-  { term: "fMRI", def: "Functional MRI — a brain scan that shows which brain regions are active during pain." },
-  { term: "Graded Exposure", def: "Gradually and safely reintroducing activities your brain has learned to fear, to retrain safety signals." },
-  { term: "Hyperalgesia", def: "When things that should hurt a little hurt a lot — the pain volume is turned way up." },
-  { term: "IASP", def: "International Association for the Study of Pain. The global authority on pain classification." },
-  { term: "Nociception", def: "The neural process of detecting actual or potential tissue damage. Not the same as pain — pain is the brain's interpretation." },
-  { term: "Nociceptive Pain", def: "Normal pain from tissue damage — like a cut, burn, or broken bone. The alarm system working correctly." },
-  { term: "Nociplastic Pain", def: "The formal clinical term for pain from altered nociception without clear tissue damage. The IASP's third pain category alongside nociceptive and neuropathic." },
-  { term: "Neuropathic Pain", def: "Pain caused by damage to nerves themselves — like diabetic neuropathy or sciatica." },
-  { term: "Neuroplastic Pain", def: "Chronic pain caused by changes in neural pathways rather than ongoing tissue damage. Interchangeable with nociplastic pain." },
-  { term: "Neuroplasticity", def: "The brain's ability to change and reorganize itself by forming new neural connections. Works both ways — can learn pain and unlearn it." },
-  { term: "Pain Catastrophizing", def: "A pattern of imagining the worst about pain. It amplifies pain by activating fear circuits. Reducing it is a key treatment target." },
-  { term: "Pain Neuroscience Education", def: "Teaching people how pain works. Shown to reduce pain, fear, and disability simply through understanding." },
-  { term: "Pain Reprocessing Therapy (PRT)", def: "A treatment that retrains the brain to reinterpret pain as a false alarm rather than danger. Landmark trial: 66% pain-free in 4 weeks." },
-  { term: "Phantom Limb Pain", def: "Pain felt in a limb that no longer exists. A powerful example of the brain generating pain without any body signal." },
-  { term: "Somatic Tracking", def: "A technique of noticing pain sensations with curiosity rather than fear, reappraising them as safe." },
-  { term: "Sensitization", def: "When your nervous system becomes more reactive over time. The opposite of habituation." },
+  { term: "Allodynia", def: "Pain from something that shouldn't hurt — like light touch, clothing, or a gentle hug. A hallmark of central sensitization." },
+  { term: "ATNS", def: "Association for the Treatment of Neuroplastic Symptoms. Professional organization training practitioners in neuroplastic recovery approaches." },
+  { term: "Central Sensitization", def: "A process where the central nervous system (brain + spinal cord) becomes hypersensitive, amplifying pain signals and generating pain from normally non-painful stimuli. The core mechanism in neuroplastic pain." },
+  { term: "Central Sensitization Syndromes", def: "A group of overlapping conditions (fibromyalgia, IBS, TMJ, chronic fatigue, migraine, etc.) that share central sensitization as their underlying mechanism." },
+  { term: "Descending Modulation", def: "The brain's natural pain-control system — signals sent from the brain down to the spinal cord that turn pain signals down. Weakened in chronic pain." },
+  { term: "EAET", def: "Emotional Awareness and Expression Therapy. A treatment that helps patients identify, experience, and express suppressed emotions (especially anger and grief) to reduce pain. Developed by Mark Lumley and Howard Schubiner." },
+  { term: "fMRI", def: "Functional MRI — a brain scan that shows which brain regions are active. Used to demonstrate that neuroplastic pain activates the same regions as physical injury." },
+  { term: "Glial Cells", def: "Immune cells in the brain and spinal cord. When activated by chronic stress or pain, they release inflammatory molecules that maintain the sensitized state." },
+  { term: "Graded Exposure", def: "Gradually and safely reintroducing feared movements and activities to desensitize the nervous system. Key is pacing — staying within the window of tolerance while expanding it." },
+  { term: "Graded Motor Imagery", def: "A step-by-step technique: first imagine a movement, then visualize performing it, then do a tiny version. Used for severe neuroplastic pain (e.g. CRPS)." },
+  { term: "Hebbian Plasticity", def: "\"Neurons that fire together, wire together.\" The mechanism by which pain becomes a learned neural pathway — and the same mechanism that enables unlearning." },
+  { term: "Hyperalgesia", def: "When things that should hurt a little hurt a lot — your pain volume is stuck on high. A key feature of central sensitization." },
+  { term: "IASP", def: "International Association for the Study of Pain. The global authority on pain research and classification. Formally recognized nociplastic pain as the third pain category." },
+  { term: "IFS", def: "Internal Family Systems. A therapy model that views the mind as composed of 'parts.' Some protective parts may generate pain to shield vulnerable exiled emotions. Being adapted for chronic pain treatment." },
+  { term: "ISTDP", def: "Intensive Short-Term Dynamic Psychotherapy. A focused psychodynamic approach targeting emotional avoidance patterns. Meta-analysis shows effectiveness for somatic disorders." },
+  { term: "MBS", def: "Mind Body Syndrome. Howard Schubiner's term for physical symptoms (pain, fatigue, gut issues) caused by learned neural pathways rather than structural disease. Same concept as TMS." },
+  { term: "Neuroplastic Pain", def: "Chronic pain caused by learned neural pathways in the brain — not by ongoing tissue damage. Also called nociplastic pain, primary pain, MBS, or TMS. The brain generates real pain as a false alarm." },
+  { term: "Neuroplasticity", def: "The brain's ability to change and reorganize itself throughout life by forming new neural connections. This is both how pain is learned AND how it can be unlearned." },
+  { term: "Nociception", def: "The neural process of detecting actual or potential tissue damage. Nociception is NOT pain — pain is the brain's conscious interpretation of nociceptive signals (and can occur without them)." },
+  { term: "Nociceptive Pain", def: "Normal protective pain from actual tissue damage — like a cut, burn, sprain, or broken bone. The alarm system working as designed." },
+  { term: "Nociplastic Pain", def: "The formal IASP clinical term for pain from altered nociception without clear tissue or nerve damage. The third official pain category alongside nociceptive and neuropathic. Interchangeable with neuroplastic pain." },
+  { term: "Nocebo Effect", def: "When negative expectations create real negative symptoms. Being told your spine is 'degenerating' or your MRI is 'abnormal' can generate genuine pain through fear-induced sensitization." },
+  { term: "Neuropathic Pain", def: "Pain caused by damage or disease affecting the nerves themselves — like diabetic neuropathy, post-herpetic neuralgia, or sciatica from nerve compression." },
+  { term: "Pain Catastrophizing", def: "A pattern of imagining the worst about pain — 'this will never end,' 'I'm permanently damaged.' It amplifies pain by activating fear circuits. Reducing catastrophizing is a key treatment target." },
+  { term: "Pain Neuroscience Education (PNE)", def: "Teaching people the neuroscience of how pain works. Multiple studies show PNE alone reduces pain intensity, fear of movement, and disability. The act of learning is itself therapeutic." },
+  { term: "Pain Reprocessing Therapy (PRT)", def: "A 5-component brain-retraining protocol developed by Alan Gordon. RCT in JAMA Psychiatry showed 66% pain-free after 4 weeks. Core technique: somatic tracking with safety reappraisal." },
+  { term: "Phantom Limb Pain", def: "Pain felt in a limb that no longer exists. The most dramatic demonstration that the brain can generate pain entirely without body signals — clear evidence for neuroplastic pain mechanisms." },
+  { term: "Placebo Effect", def: "When positive expectations create real positive physiological changes. The brain releases endogenous opioids and dopamine. Demonstrates that belief alone can alter pain processing." },
+  { term: "Predictive Processing", def: "The neuroscience framework explaining how the brain actively constructs experience (including pain) based on predictions, not passive sensory input. Chronic pain = faulty predictions of danger." },
+  { term: "Primary Pain", def: "The ICD-11 diagnostic term for chronic pain arising from altered nociception without clear biological cause. Equivalent to nociplastic / neuroplastic pain." },
+  { term: "PSRT", def: "Psychophysiologic Symptom Relief Therapy. A mind-body approach similar to PRT, validated in a Harvard study (Donnino et al., 2021). Combines education with practical techniques." },
+  { term: "Sensitization", def: "When the nervous system becomes more reactive over time — sensitivity goes up, threshold goes down. The opposite of habituation. Present in all forms of chronic pain." },
+  { term: "Somatic Tracking", def: "The core PRT technique: attending to pain sensations with curiosity and safety rather than fear. Observing without reacting. Sending messages of safety to the brain. Repeated practice weakens the pain pathway." },
+  { term: "Somatosensory Cortex", def: "The brain region that maps and represents the body. Can become distorted in chronic pain — body maps shrink or blur, contributing to confused pain signals." },
+  { term: "TMS", def: "Tension Myoneural Syndrome (also Tension Myositis Syndrome). Dr. John Sarno's original term for brain-generated pain. The foundation of all modern neuroplastic pain approaches." },
+  { term: "Window of Tolerance", def: "The zone where you can experience a sensation or activity without triggering a threat response. The goal of graded exposure is to gradually expand this window." },
 ];
+
+// Sort alphabetically
+terms.sort((a, b) => a.term.localeCompare(b.term));
 ---
 
 <Base title="Glossary">
   <article class="container page-section">
     <h1>Glossary</h1>
-    <p>Plain-language definitions of terms you'll encounter in neuroplastic pain research.</p>
+    <p style="font-size: 1.1rem; color: var(--text-muted); max-width: 600px;">
+      {terms.length}+ plain-language definitions of terms used in neuroplastic pain research and treatment.
+      Understanding these concepts is itself therapeutic — it reduces fear and builds conviction.
+    </p>
+
+    <!-- Quick nav -->
+    <div style="margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem;">
+      {[...new Set(terms.map(t => t.term[0].toUpperCase()))].sort().map(letter => (
+        <a href={`#sec-${letter}`} style="
+          width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center;
+          background: var(--teal-light); border-radius: 6px; font-size: 0.85rem;
+          font-weight: 700; color: var(--teal); text-decoration: none;
+        ">{letter}</a>
+      ))}
+    </div>
 
     <div style="margin-top: 2rem;">
-      {terms.map(({ term, def }) => (
-        <div class="card" style="margin-bottom: 0.75rem;">
-          <dt style="font-weight: 700; color: var(--teal-dark); margin-bottom: 0.2rem;">{term}</dt>
-          <dd style="margin: 0; font-size: 0.95rem;">{def}</dd>
-        </div>
-      ))}
+      {(() => {
+        const groups: Record<string, typeof terms> = {};
+        terms.forEach(t => {
+          const letter = t.term[0].toUpperCase();
+          if (!groups[letter]) groups[letter] = [];
+          groups[letter].push(t);
+        });
+        return Object.entries(groups).sort(([a], [b]) => a.localeCompare(b)).map(([letter, group]) => (
+          <div style="margin-bottom: 2rem;">
+            <h2 id={`sec-${letter}`} style="font-size: 1.5rem; color: var(--teal); border-bottom: 2px solid var(--teal-light); padding-bottom: 0.3rem; margin-bottom: 0.75rem;">
+              {letter}
+            </h2>
+            {group.map(({ term, def }) => (
+              <div class="card" style="margin-bottom: 0.6rem; padding: 0.8rem 1rem;">
+                <dt style="font-weight: 700; color: var(--teal-dark); margin-bottom: 0.15rem; font-size: 0.95rem;">{term}</dt>
+                <dd style="margin: 0; font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">{def}</dd>
+              </div>
+            ))}
+          </div>
+        ));
+      })()}
     </div>
   </article>
 </Base>

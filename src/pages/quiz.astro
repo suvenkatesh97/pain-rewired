@@ -48,14 +48,15 @@ import Base from '../layouts/Base.astro';
 
         <div class="card" style="background: var(--teal-light);">
           <p style="margin: 0; font-size: 0.95rem;">
-            <strong>What now?</strong> This is a starting point for awareness, not a verdict. 
-            If your score suggests central sensitization may be involved, consider:
+            <strong>Recommended next steps:</strong>
           </p>
-          <ul style="margin-top: 0.5rem; margin-bottom: 0;">
-            <li>Reading the <a href="/intro/what-is">intro guides</a> on this site</li>
-            <li>Discussing central sensitization with your doctor</li>
-            <li>Exploring <a href="/intro/treatments">evidence-based treatments</a></li>
-            <li>Looking into Pain Reprocessing Therapy resources</li>
+          <ul style="margin: 0.5rem 0 0; line-height: 1.8; padding-left: 1.2rem;">
+            <li>Read the <a href="/intro/what-is"><strong>intro guides</strong></a> on this site</li>
+            <li>Explore <a href="/protocols/prt"><strong>Pain Reprocessing Therapy</strong></a> — the full protocol</li>
+            <li>Dive into <a href="/protocols/schubiner"><strong>Schubiner's Unlearn Your Pain method</strong></a></li>
+            <li>Check the <a href="/faq"><strong>FAQ</strong></a> for common questions</li>
+            <li>Browse <a href="/resources"><strong>books, courses, and practitioners</strong></a></li>
+            <li>Discuss central sensitization with a PRT-trained healthcare provider</li>
           </ul>
         </div>
 
@@ -247,30 +248,35 @@ function showResults() {
       <p>If you're in pain, it's still worth discussing with a healthcare provider and exploring 
       all possible causes.</p>
     `;
-  } else if (sum <= 20) {
+    } else if (sum <= 20) {
     range = 'Mild (11–20) — Some indicators present';
     interpretation = `
-      <p>You have some features consistent with central sensitization. This is a moderate signal — 
-      worth exploring further but not definitive.</p>
-      <p>Consider reading the intro guides and speaking with a clinician about whether 
-      central sensitization might be part of your picture.</p>
+      <p>You have some features consistent with central sensitization. This is a moderate signal —
+      worth exploring further.</p>
+      <p>Start with the <a href="/intro/what-is">intro guides</a> and the
+      <a href="/intro/science">science page</a> to understand the mechanism. If the evidence
+      resonates, explore <a href="/protocols/prt">PRT techniques</a>.</p>
     `;
   } else if (sum <= 30) {
     range = 'Moderate (21–30) — Significant indicators';
     interpretation = `
-      <p>Your responses show a significant pattern of central sensitization features. This suggests 
-      that neuroplastic mechanisms may be playing an important role in your pain.</p>
-      <p>Many people in this range find brain-based treatments (PRT, EAET, pain education) very helpful. 
-      Consider exploring these approaches with a qualified practitioner.</p>
+      <p>Your responses show a significant pattern of central sensitization features. Neuroplastic
+      mechanisms are likely playing an important role in your pain.</p>
+      <p>Dive into the <a href="/protocols/prt"><strong>PRT protocol</strong></a> or
+      <a href="/protocols/schubiner"><strong>Schubiner's method</strong></a>. The
+      <a href="/intro/treatments">full treatments page</a> compares all approaches.
+      The landmark PRT trial showed 66% pain-free rates — these approaches work.</p>
     `;
   } else {
     range = 'High (31–40) — Strong indicators';
     interpretation = `
-      <p>Your responses indicate a strong pattern consistent with central sensitization. This is a 
-      common presentation in conditions like fibromyalgia, chronic widespread pain, and other 
-      central sensitization syndromes.</p>
-      <p>This is a well-studied and treatable condition. Brain-based approaches have strong evidence 
-      for this range. Please discuss with a healthcare professional who understands neuroplastic pain.</p>
+      <p>Your responses strongly suggest central sensitization — common in fibromyalgia, chronic
+      widespread pain, and related syndromes. This is well-studied and highly treatable.</p>
+      <p><strong>You're in the right place.</strong> Start with the
+      <a href="/intro/what-is">intro guide</a>, then work through the
+      <a href="/protocols/prt">PRT protocol</a> step by step. Consider finding a
+      <a href="/resources">PRT-trained practitioner</a> to guide you. The JAMA trial showed
+      66% recovery in 4 weeks — evidence is on your side.</p>
     `;
   }
 
