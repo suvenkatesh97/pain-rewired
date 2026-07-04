@@ -26,6 +26,9 @@ export function Nav() {
             P
           </span>
           <span className="hidden xs:inline">Pain Rewired</span>
+          <span className="hidden sm:inline-flex items-center px-1.5 py-0.5 rounded-md bg-blue-50 dark:bg-blue-900/30 text-[10px] font-semibold text-blue-600 dark:text-blue-300 uppercase tracking-wide leading-none ml-1">
+            WIP
+          </span>
         </Link>
 
         <div className="hidden md:flex items-center gap-1">
