@@ -4,9 +4,10 @@ import '../styles/global.css';
 export interface Props {
   title: string;
   description?: string;
+  hideFooter?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, hideFooter } = Astro.props;
 ---
 
 <!doctype html>
@@ -15,36 +16,99 @@ const { title, description } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title} — Pain Rewired</title>
-    <meta name="description" content={description || 'Making neuroplastic pain research accessible.'} />
+    <meta name="description" content={description || 'Making neuroplastic pain research accessible. Curated by Sunny Venkatesh.'} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      .nav-blur { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+    </style>
   </head>
   <body>
-    <nav style="border-bottom: 1px solid var(--border); background: white;">
-      <div class="container-wide" style="display: flex; align-items: center; gap: 2rem; padding-top: 0.8rem; padding-bottom: 0.8rem;">
-        <a href="/" style="font-weight: 700; font-size: 1.15rem; color: var(--teal); text-decoration: none;">
+    <nav class="nav-blur" style="
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(255,255,255,0.85);
+      border-bottom: 1px solid var(--border);
+    ">
+      <div class="container-wide" style="
+        display: flex; align-items: center; justify-content: space-between;
+        padding-top: 0.7rem; padding-bottom: 0.7rem;
+      ">
+        <a href="/" style="
+          font-weight: 800; font-size: 1.15rem;
+          color: var(--teal); text-decoration: none;
+          letter-spacing: -0.03em; display: flex; align-items: center; gap: 0.4rem;
+        ">
+          <span style="
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 28px; height: 28px; background: var(--teal);
+            border-radius: 6px; color: white; font-size: 0.85rem; font-weight: 800;
+          ">P</span>
           Pain Rewired
         </a>
-        <div style="display: flex; gap: 1.2rem;">
-          <a href="/intro/what-is">Intro</a>
-          <a href="/blog">Research</a>
-          <a href="/quiz">Quiz</a>
-          <a href="/glossary">Glossary</a>
-          <a href="/resources">Resources</a>
+        <div style="display: flex; gap: 0.25rem; align-items: center;">
+          <a href="/intro/what-is" class="nav-link" style="padding: 0.4rem 0.7rem; font-size: 0.9rem;">Intro</a>
+          <a href="/blog" class="nav-link" style="padding: 0.4rem 0.7rem; font-size: 0.9rem;">Research</a>
+          <a href="/quiz" class="nav-link" style="padding: 0.4rem 0.7rem; font-size: 0.9rem;">Quiz</a>
+          <a href="/glossary" class="nav-link" style="padding: 0.4rem 0.7rem; font-size: 0.9rem;">Glossary</a>
+          <a href="/about" class="nav-link" style="padding: 0.4rem 0.7rem; font-size: 0.9rem;">About</a>
         </div>
       </div>
     </nav>
 
-    <main>
+    <main style="flex: 1;">
       <slot />
     </main>
 
-    <footer>
-      <div class="container-wide" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-        <span>© 2026 Pain Rewired</span>
-        <span style="font-size: 0.8rem;">
-          Not medical advice. Always consult a healthcare professional.
-        </span>
-      </div>
-    </footer>
+    {!hideFooter && (
+      <footer style="
+        border-top: 1px solid var(--border);
+        padding: 3rem 0 2rem;
+        margin-top: 2rem;
+        background: var(--warm-white);
+      ">
+        <div class="container-wide">
+          <div style="
+            display: flex; justify-content: space-between; align-items: start;
+            flex-wrap: wrap; gap: 2rem;
+          ">
+            <div>
+              <div style="font-weight: 700; font-size: 1.05rem; color: var(--teal); margin-bottom: 0.3rem;">Pain Rewired</div>
+              <p style="font-size: 0.85rem; color: var(--text-muted); max-width: 280px; margin: 0;">
+                Making neuroplastic pain research accessible for everyone.
+              </p>
+            </div>
+            <div style="display: flex; gap: 2.5rem; flex-wrap: wrap;">
+              <div>
+                <div style="font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem; color: var(--text);">Explore</div>
+                <div style="display: flex; flex-direction: column; gap: 0.3rem;">
+                  <a href="/intro/what-is" style="font-size: 0.85rem; color: var(--text-muted);">Intro</a>
+                  <a href="/blog" style="font-size: 0.85rem; color: var(--text-muted);">Research</a>
+                  <a href="/quiz" style="font-size: 0.85rem; color: var(--text-muted);">Quiz</a>
+                  <a href="/glossary" style="font-size: 0.85rem; color: var(--text-muted);">Glossary</a>
+                </div>
+              </div>
+              <div>
+                <div style="font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem; color: var(--text);">Connect</div>
+                <div style="display: flex; flex-direction: column; gap: 0.3rem;">
+                  <a href="/about" style="font-size: 0.85rem; color: var(--text-muted);">About me</a>
+                  <a href="https://in.linkedin.com/in/sunny-venkatesh-877896194" target="_blank" rel="noopener noreferrer" style="font-size: 0.85rem; color: var(--text-muted);">LinkedIn</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="section-divider" style="margin: 1.5rem 0;" />
+          <div style="
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 0.5rem;
+            font-size: 0.8rem; color: var(--text-light);
+          ">
+            <span>© 2026 Pain Rewired. Built by <a href="https://in.linkedin.com/in/sunny-venkatesh-877896194" target="_blank" rel="noopener noreferrer" style="color: var(--text-muted);">Sunny Venkatesh</a>.</span>
+            <span>Not medical advice. Always consult a professional.</span>
+          </div>
+        </div>
+      </footer>
+    )}
   </body>
 </html>

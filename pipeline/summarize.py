@@ -1,5 +1,5 @@
 """
-Take papers from fetch.py and generate simplified summaries using Google Gemini.
+Take papers/blogs from fetch.py and generate simplified summaries using Gemini.
 Outputs markdown files to src/content/posts/.
 """
 
@@ -13,6 +13,7 @@ import google.generativeai as genai
 
 POSTS_DIR = os.path.join(os.path.dirname(__file__), "..", "src", "content", "posts")
 PROMPT_FILE = os.path.join(os.path.dirname(__file__), "prompts", "summarize.txt")
+BLOG_PROMPT_FILE = os.path.join(os.path.dirname(__file__), "prompts", "blog_summarize.txt")
 
 genai.configure(api_key=os.environ.get("GEMINI_API_KEY", ""))
 
@@ -25,46 +26,50 @@ def slugify(title):
     return s[:80].rstrip("-")
 
 
-def load_prompt():
-    with open(PROMPT_FILE) as f:
+def load_prompt(path):
+    with open(path) as f:
         return f.read()
 
 
-def summarize_paper(paper, model):
-    prompt = load_prompt()
-    abstract = paper.get("abstract", "No abstract available.")
-    # Truncate abstract if too long
-    if len(abstract) > 8000:
-        abstract = abstract[:8000] + "..."
+def summarize(paper, model, prompt_path):
+    prompt = load_prompt(prompt_path)
+    content = paper.get("abstract") or paper.get("summary") or "No content available."
+    if len(content) > 8000:
+        content = content[:8000] + "..."
+
     full_prompt = (
         f"{prompt}\n\n---\n"
         f"Title: {paper['title']}\n"
+        f"Source: {paper.get('source_name', '')}\n"
         f"Authors: {paper.get('authors', '')}\n"
-        f"Journal: {paper.get('source', '')}\n"
         f"Date: {paper.get('pubdate', '')}\n\n"
-        f"Abstract:\n{abstract}"
+        f"Content:\n{content}"
     )
 
     try:
         resp = model.generate_content(full_prompt)
         return resp.text
     except Exception as e:
-        print(f"  Error summarizing {paper['pmid']}: {e}", file=sys.stderr)
+        print(f"  Error summarizing {paper.get('pmid') or paper.get('url')}: {e}", file=sys.stderr)
         return None
 
 
-def make_markdown(paper, summary):
-    title = paper["title"]
-    pubdate = paper.get("pubdate", "")[:10]
-    source = paper.get("url", "")
-    authors = paper.get("authors", "")
-    journal = paper.get("source", "")
+def make_markdown(item, summary, source_type="pubmed"):
+    title = item["title"]
+    pubdate = item.get("pubdate", "")[:10]
+    source = item.get("url", "")
+    authors = item.get("authors", "") or item.get("author", "")
+    journal = item.get("source_name", "")
+    tags = "pubmed" if source_type == "pubmed" else "blog"
+    if source_type == "blog":
+        tags = "blog, opinion"
 
-    esc = lambda s: s.replace('"', "'")
+    esc = lambda s: s.replace('"', "'").replace("\n", " ") if s else ""
+
     frontmatter = f"""---
 title: "{esc(title)}"
 date: "{pubdate}"
-tags: []
+tags: [{tags}]
 difficulty: "beginner"
 source: "{esc(source)}"
 authors: "{esc(authors)}"
@@ -92,37 +97,52 @@ def main():
         sys.exit(1)
 
     papers = data.get("papers", [])
-    if not papers:
-        print("No new papers to summarize.")
+    blogs = data.get("blogs", [])
+
+    if not papers and not blogs:
+        print("No new items to summarize.")
         return
 
     os.makedirs(POSTS_DIR, exist_ok=True)
 
-    for paper in papers:
-        pmid = paper["pmid"]
-        title = paper["title"]
-        print(f"Summarizing {pmid}: {title[:60]}...", file=sys.stderr)
-
-        summary = summarize_paper(paper, model)
+    for item in papers:
+        title = item["title"]
+        print(f"Summarizing paper: {title[:60]}...", file=sys.stderr)
+        summary = summarize(item, model, PROMPT_FILE)
         if not summary:
             continue
-
-        md = make_markdown(paper, summary)
+        md = make_markdown(item, summary, "pubmed")
         slug = slugify(title)
-        fname = f"{date.today().isoformat()}-{slug}.md"
+        today = date.today().isoformat()
+        fname = f"{today}-{slug}.md"
         fpath = os.path.join(POSTS_DIR, fname)
-
-        # Avoid overwriting existing files
         counter = 1
         while os.path.exists(fpath):
-            base = f"{date.today().isoformat()}-{slug}"
-            fname = f"{base}-{counter}.md"
+            fname = f"{today}-{slug}-{counter}.md"
             fpath = os.path.join(POSTS_DIR, fname)
             counter += 1
-
         with open(fpath, "w") as f:
             f.write(md)
+        print(f"  -> {fpath}", file=sys.stderr)
 
+    for item in blogs:
+        title = item["title"]
+        print(f"Summarizing blog: {title[:60]}...", file=sys.stderr)
+        summary = summarize(item, model, BLOG_PROMPT_FILE)
+        if not summary:
+            continue
+        md = make_markdown(item, summary, "blog")
+        slug = slugify(title)
+        today = date.today().isoformat()
+        fname = f"{today}-{slug}.md"
+        fpath = os.path.join(POSTS_DIR, fname)
+        counter = 1
+        while os.path.exists(fpath):
+            fname = f"{today}-{slug}-{counter}.md"
+            fpath = os.path.join(POSTS_DIR, fname)
+            counter += 1
+        with open(fpath, "w") as f:
+            f.write(md)
         print(f"  -> {fpath}", file=sys.stderr)
 
 
